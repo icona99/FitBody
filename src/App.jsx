@@ -1,13 +1,14 @@
 import Header from "./components/Header"
-
+import Home from "./components/Home"
+import Footer from "./components/Footer"
 
 function App() {
   return (
     <>
       <div className="super_container">
         <Header />
-
-        {/* Hamburger */}
+{/* 
+        { Hamburger }
         <div className="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start">
           <div className="hamburger">
             <div className="menu_toggle d-flex flex-row align-items-center justify-content-start">
@@ -31,7 +32,7 @@ function App() {
             </div>
           </div>
         </div>
-        {/* Menu */}
+        {/* Menu }
         <div className="menu trans_800">
           <div className="menu_content d-flex flex-column align-items-center justify-content-center text-center">
             <ul>
@@ -56,45 +57,8 @@ function App() {
             <i className="fa fa-phone" aria-hidden="true" />
             <span>652-345 3222 11</span>
           </div>
-        </div>
-        {/* Home */}
-        <div className="home">
-          <div
-            className="background_image"
-            style={{ backgroundImage: "url(images/index.jpg)" }}
-          />
-          <div className="overlay" />
-          <div className="home_container">
-            <div className="container">
-              <div className="row">
-                <div className="col">
-                  <div className="home_content text-center">
-                    <div className="video_link">
-                      <a
-                        className="vimeo video_button d-flex flex-column align-items-center justify-content-center"
-                        href="https://player.vimeo.com/video/99340873?autoplay=1&loop=1&title=0&autopause=0"
-                      >
-                        <div className="video_link_content d-flex flex-row align-items-center justify-content-start">
-                          <div className="video_icon d-flex flex-column align-items-center justify-content-center">
-                            <i className="fa fa-play" aria-hidden="true" />
-                          </div>
-                          <span className="video_text">See Workout Video</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div className="home_title">Get fit with us</div>
-                    <div className="home_subtitle">
-                      Pilates, Yoga, Fitness, Spinning &amp; many more
-                    </div>
-                    <div className="button home_button ml-auto mr-auto">
-                      <a href="#">Join Now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div> */}
+        <Home />
         {/* Boxes */}
         <div className="boxes">
           <div className="container">
@@ -587,75 +551,7 @@ function App() {
             </div>
           </div>
         </div>
-        {/* Footer */}
-        <footer className="footer">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-8 offset-lg-2">
-                <div className="footer_container">
-                  <div className="footer_content">
-                    <div className="footer_logo">
-                      <a href="#">
-                        <div className="logo d-flex flex-row align-items-center justify-content-center">
-                          <img src="images/dot.png" alt="" />
-                          <div>
-                            Sport<span>fit</span>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                    <nav className="footer_nav">
-                      <ul className="d-flex flex-sm-row flex-column align-items-sm-start align-items-center justify-content-center">
-                        <li>
-                          <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                          <a href="about.html">About us</a>
-                        </li>
-                        <li>
-                          <a href="services.html">Classes &amp; Services</a>
-                        </li>
-                        <li>
-                          <a href="blog.html">Blog</a>
-                        </li>
-                        <li>
-                          <a href="contact.html">Contact</a>
-                        </li>
-                      </ul>
-                    </nav>
-                    <div className="newsletter_container">
-                      <form
-                        action="#"
-                        id="newsletter_form"
-                        className="newsletter_form"
-                      >
-                        <input
-                          type="text"
-                          className="newsletter_input"
-                          placeholder="Enter your email here"
-                          required="required"
-                        />
-                        <button className="newsletter_button">go</button>
-                      </form>
-                    </div>
-                    <div className="copyright d-flex flex-row align-items-start justify-content-sm-end justify-content-center">
-                      {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
-                      Copyright © All rights reserved | This template is made with{" "}
-                      <i className="fa fa-heart-o" aria-hidden="true" /> by{" "}
-                      <a href="https://colorlib.com" target="_blank">
-                        Colorlib
-                      </a>
-                      {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
-                    </div>
-                  </div>
-                  <div className="footer_image text-center">
-                    <img src="images/footer.png" alt="" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
 
     </>
