@@ -9,7 +9,7 @@ body {
 .header {
     background-color: #333;
     color: white;
-    padding: 15px 0;
+    padding: 1em 0;
 }
 
 .header .container {
@@ -18,10 +18,10 @@ body {
     align-items: center;
     max-width: 1800px;
     margin: 0 auto;
-    padding: 0 20px;
 }
-.logo{
-align-content: flex-start;
+
+.logo {
+    align-content: flex-start;
 }
 
 .header a {

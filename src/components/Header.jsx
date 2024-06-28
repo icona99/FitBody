@@ -6,10 +6,10 @@ function Header() {
         <header className="header">
             <div className="container">
                 <div className="logo">
-                    <a href="#">
+                    <a href="/">
                         <img src="images/dot.png" alt="" />
                         <div>
-                            Fit<span>Body</span>
+                            Fit<span>BODY</span>
                         </div>
                     </a>
                 </div>
@@ -19,10 +19,10 @@ function Header() {
                             <a href="index.html">Home</a>
                         </li>
                         <li>
-                            <a href="about.html">About us</a>
+                            <a href="services.html">Classes</a>
                         </li>
                         <li>
-                            <a href="services.html">Classes &amp; Services</a>
+                            <a href="about.html">About us</a>
                         </li>
                         <li>
                             <a href="blog.html">Team</a>
