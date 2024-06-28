@@ -1,5 +1,5 @@
 .home{
-    background-image: url('/public/images/360_F_507731580_jBCk75CQAvIlHkWnNOTbWtzpvusICeOu.jpg');
+    background-image: url('/public/images/360_F_124887107_jHzYHrpwWVFm8PJM9Z0tgyblk5of0aUZ.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -34,7 +34,7 @@
 }
 
 .home-button a:hover{
-    background: rgb(153, 100, 0);
+    background: rgb(233, 115, 4);
     color: black;
     cursor: pointer;
 }

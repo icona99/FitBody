@@ -19,16 +19,22 @@ function Header() {
                             <a href="index.html">Home</a>
                         </li>
                         <li>
-                            <a href="services.html">Classes</a>
+                            <a href="login.html">Login</a>
                         </li>
                         <li>
-                            <a href="blog.html">Team</a>
+                            <a href="register.html">Register</a>
+                        </li>
+                        <li>
+                            <a href="classes.html">Classes</a>
+                        </li>
+                        <li>
+                            <a href="team.html">Team</a>
                         </li>
                         <li>
                             <a href="about.html">About us</a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="addClass.html">Add Class</a>
                         </li>
                     </ul>
                 </nav>
