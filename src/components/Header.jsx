@@ -5,7 +5,7 @@ function Header() {
     return (
         <header className="header">
             <div className="container">
-                <div className="logo">
+                <div>
                     <a href="/">
                         <img src="images/dot.png" alt="" />
                         <div>

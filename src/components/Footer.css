@@ -1,0 +1,53 @@
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.logo {
+    align-content: flex-start;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.footer a:hover {
+    color: #f39c12;
+}
+
+.footer img {
+    height: 25px;
+    margin-right: 10px;
+}
+
+.footer div {
+    font-size: 24px;
+}
+
+.footer div span {
+    color: #f39c12;
+}
+
+
+.newsletter input{
+    background: rgb(233, 115, 4);
+    border: 2px solid white;
+    border-radius: 0.7em;
+    color: white;
+    width: 300px;
+    text-decoration: none;
+    padding: 0.5em 2em;
+}

@@ -3,16 +3,13 @@ import Home from "./components/Home"
 import Footer from "./components/Footer"
 
 function App() {
-  return (
-    <>
-      <div className="super_container">
-        <Header />
-        <Home />
-        <Footer />
-      </div>
-
-    </>
-  )
+	return (
+		<>
+			<Header />
+			<Home />
+			<Footer />
+		</>
+	)
 }
 
 export default App
