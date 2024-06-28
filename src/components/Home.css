@@ -1,4 +1,4 @@
-.home{
+.home {
     background-image: url('/public/images/360_F_124887107_jHzYHrpwWVFm8PJM9Z0tgyblk5of0aUZ.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -7,14 +7,15 @@
     text-align: center;
 }
 
-.home-text h1{
+.home-text h1 {
     font-size: 88px;
     color: white;
     text-align: center;
     font-weight: bold;
     margin: 0;
 }
-.home-text p{
+
+.home-text p {
     color: white;
     text-align: center;
     font-weight: bold;
@@ -22,7 +23,7 @@
     margin-bottom: 2em;
 }
 
-.home-button a{
+.home-button a {
     background: rgb(233, 115, 4);
     border: 2px solid white;
     border-radius: 0.7em;
@@ -33,11 +34,12 @@
     margin-bottom: 8em;
 }
 
-.home-button a:hover{
+.home-button a:hover {
     background: rgb(233, 115, 4);
     color: black;
     cursor: pointer;
 }
+
 .features {
     display: flex;
     justify-content: space-between;
@@ -48,6 +50,7 @@
 }
 
 .feature {
+    position: relative;
     max-width: 300px;
     width: 100%;
     height: auto;
@@ -62,9 +65,10 @@
     box-shadow: 0 0 1em rgba(146, 146, 146, 0.1);
 }
 
-.feature:hover{
+.feature:hover {
     background: rgb(95, 95, 95);
 }
+
 .feature img {
     font-size: 48px;
     color: white
@@ -79,3 +83,30 @@
     font-size: 16px;
 }
 
+.circle-button {
+    position: absolute;
+    bottom: 5px;
+    right: 155px;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    color: orange;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    font-size: 24px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.feature:hover .circle-button {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.circle-button:hover {
+    background-color: orange;
+    color: white;
+}
