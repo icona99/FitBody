@@ -22,10 +22,10 @@ function Header() {
                             <a href="services.html">Classes</a>
                         </li>
                         <li>
-                            <a href="about.html">About us</a>
+                            <a href="blog.html">Team</a>
                         </li>
                         <li>
-                            <a href="blog.html">Team</a>
+                            <a href="about.html">About us</a>
                         </li>
                         <li>
                             <a href="contact.html">Contact</a>

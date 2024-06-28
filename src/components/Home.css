@@ -3,11 +3,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    overflow: hidden;
-    max-width: 1900px;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
     padding: 2em;
     text-align: center;
 }
@@ -47,7 +42,7 @@
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
-    margin: 8em auto;
+    margin: 12em auto;
     margin-bottom: 0;
     padding: 0 1em;
 }
@@ -70,9 +65,9 @@
 .feature:hover{
     background: rgb(95, 95, 95);
 }
-.feature i {
+.feature img {
     font-size: 48px;
-    color: #f39c12;
+    color: white
 }
 
 .feature h2 {
