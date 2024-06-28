@@ -8,7 +8,7 @@ export default function Home() {
                 <p>Pilates, Yoga, Fitness, Spinning &amp; many more</p>
             </div>
             <div className="home-button">
-                <a href="#">Join Now</a>
+                <a href="/register">Join Now</a>
             </div>
             <section class="features">
                 <div class="feature">

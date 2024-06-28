@@ -7,7 +7,7 @@ function Header() {
             <div className="container">
                 <div>
                     <a href="/">
-                        <img src="images/dot.png" alt="" />
+                        <img src="images/icon_7.png" alt="logo" />
                         <div>
                             Fit<span>BODY</span>
                         </div>
