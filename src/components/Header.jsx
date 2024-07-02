@@ -1,40 +1,41 @@
-import '/src/components/Header.css'
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './Header.css';
 
 function Header() {
     return (
         <header className="header">
             <div className="container">
                 <div>
-                    <a href="/">
+                    <Link to="/">
                         <img src="images/icon_7.png" alt="logo" />
                         <div>
                             Fit<span>BODY</span>
                         </div>
-                    </a>
+                    </Link>
                 </div>
                 <nav className="main_nav">
                     <ul>
                         <li className="active">
-                            <a href="index.html">Home</a>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <a href="login.html">Login</a>
+                            <Link to="/login">Login</Link>
                         </li>
                         <li>
-                            <a href="register.html">Register</a>
+                            <Link to="/register">Register</Link>
                         </li>
                         <li>
-                            <a href="classes.html">Classes</a>
+                            <Link to="/classes">Classes</Link>
                         </li>
                         <li>
-                            <a href="team.html">Team</a>
+                            <Link to="/team">Team</Link>
                         </li>
                         <li>
-                            <a href="about.html">About us</a>
+                            <Link to="/about">About us</Link>
                         </li>
                         <li>
-                            <a href="addClass.html">Add Class</a>
+                            <Link to="/addClass">Add Class</Link>
                         </li>
                     </ul>
                 </nav>
@@ -42,4 +43,5 @@ function Header() {
         </header>
     )
 }
+
 export default Header;

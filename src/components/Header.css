@@ -2,14 +2,13 @@
 .header {
     background-color: #333;
     color: white;
-    padding: 1em 0;
+    padding: 1em;
 }
 
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1800px;
     margin: 0 auto;
 }
 
