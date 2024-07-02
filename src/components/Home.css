@@ -20,11 +20,13 @@
     color: white;
     text-align: center;
     font-weight: bold;
+    font-size: 18px;
     margin-top: 0;
     margin-bottom: 2em;
 }
 
 .home-button a {
+    font-size: 18px;
     background: rgb(233, 115, 4);
     border: 2px solid white;
     border-radius: 0.7em;
@@ -36,8 +38,8 @@
 }
 
 .home-button a:hover {
-    background: rgb(233, 115, 4);
-    color: black;
+    background: rgb(114, 113, 113);
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 
