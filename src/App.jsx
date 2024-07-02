@@ -8,12 +8,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import Login from './components/Login';
-// Импортирайте другите компоненти, ако са налични
-// import Register from './components/Register';
-// import Classes from './components/Classes';
-// import Team from './components/Team';
-// import About from './components/About';
-// import AddClass from './components/AddClass';
+import Register from './components/Register'
 
 function App() {
   return (
@@ -22,12 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        {/* Дефинирайте другите маршрути */}
-        {/* <Route path="/register" element={<Register />} /> */}
-        {/* <Route path="/classes" element={<Classes />} /> */}
-        {/* <Route path="/team" element={<Team />} /> */}
-        {/* <Route path="/about" element={<About />} /> */}
-        {/* <Route path="/addClass" element={<AddClass />} /> */}
+        <Route path='/register' element={<Register />} />
       </Routes>
       <Footer />
     </Router>
