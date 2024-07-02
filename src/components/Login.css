@@ -29,14 +29,16 @@
 
 .input-group label{
 	color: white;
-	font-weight: bold;
+    font-weight: bold;
+    display: block;
+    font-size: 20px;
 }
 
 .login-box input[type="email"],
 .login-box input[type="password"] {
 	width: 90%;
 	padding: 1em;
-	margin: 2em;
+	margin: 1em;
 	border: none;
 	border-radius: 0.3em;
 	background: #333;
@@ -44,16 +46,19 @@
 }
 
 .login-box button {
-	border-radius: 0.5em;
-	padding: 0.5em 4em;
-	background: #333;
-	color: orange;
-	margin-bottom: 1em;
-
+    border-radius: 0.5em;
+    padding: 0.5em 4em;
+    background: #333;
+    color: orange;
+    margin-top: 1em;
+    border: 1px solid orange;
+	font-size: 18px;
 }
 
 .login-box button:hover {
 	cursor: pointer;
+    background: orange;
+    color: #333;
 
 }
 

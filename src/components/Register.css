@@ -1,0 +1,79 @@
+.register-container {
+    background: url('/images/login1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 84vh;
+}
+
+.register-box {
+    opacity: 0.9;
+    background-color: #1a1a1a;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.9);
+    width: 600px;
+    padding: 2em;
+    text-align: center;
+}
+
+.register-box h1 {
+    font-size: 70px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+.input-group label {
+    color: white;
+    font-weight: bold;
+    display: block;
+    font-size: 20px;
+}
+
+.register-box input[type="text"],
+.register-box input[type="email"],
+.register-box input[type="password"] {
+
+    width: 90%;
+    padding: 1em;
+    margin: 1em;
+    border: none;
+    border-radius: 0.3em;
+    background: #333;
+    color: #fff;
+}
+
+.register-box button {
+    font-size: 18px;
+    border-radius: 0.5em;
+    padding: 0.5em 4em;
+    background: #333;
+    color: orange;
+    margin-top: 1em;
+    border: 1px solid orange;
+}
+
+.register-box button:hover {
+    cursor: pointer;
+    background: orange;
+    color: #333;
+}
+
+.signup-link {
+    margin-top: 1em;
+    font-size: 18px;
+}
+
+.signup-link span {
+    color: white;
+}
+
+.signup-link a {
+    color: orange;
+    text-decoration: none;
+    margin-left: 0.5em;
+}
