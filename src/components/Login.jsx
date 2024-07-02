@@ -6,9 +6,10 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <div className="logo">
+          <h1>Login</h1>
           <img src="images/icon_7.png" alt="Logo" />
         </div>
-        <form>
+        <form action='#' method='GET'>
           <div className="input-group">
             <label htmlFor="email">EMAIL ADDRESS</label>
             <input type="email" id="email" name="email" placeholder="john_smith@yahoo.com" required />
