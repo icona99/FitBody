@@ -24,6 +24,10 @@ const Profile = () => {
               <span className="info-label">Location:</span>
               <span className="info-value">New York, USA</span>
             </div>
+            <div className="info-item">
+              <span className="info-label">Member since:</span>
+              <span className="info-value">01/01/2000</span>
+            </div>
           </div>
         </div>
       </section>
