@@ -1,19 +1,16 @@
 import React from 'react';
-import "/src/components/Profile.css";
+import "./Profile.css";
 
 const Profile = () => {
   return (
     <div className="profile-container">
-      <header className="profile-header">
-        <h1>User Profile</h1>
-      </header>
       <section className="profile-content">
         <div className="profile-picture">
-          <img src="/images/profile-pic.jpg" alt="Profile" />
+          <img src="/images/profile pic.png" alt="Profile" />
         </div>
         <div className="profile-details">
           <h2>John Smith</h2>
-          <p className="profile-bio">Fitness enthusiast and personal trainer with over 10 years of experience in helping people achieve their fitness goals. Passionate about promoting healthy living and wellness.</p>
+          <p className="profile-bio">Fitness enthusiast  with over 10 years of experience in helping people achieve their fitness goals. Passionate about promoting healthy living and wellness.</p>
           <div className="profile-info">
             <div className="info-item">
               <span className="info-label">Email:</span>
