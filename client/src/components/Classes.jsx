@@ -1,5 +1,6 @@
 import React from 'react';
 import './Classes.css'
+import SportCard from './SportCard';
 
 
 function Classes() {
@@ -9,6 +10,7 @@ function Classes() {
                 <h2>We have variety of classes</h2>
             </div>
             <section class="features">
+                {/* <SportCard /> */}
                 <div class="feature">
                     <img src="/public/images/icon_7.png" alt="Weight traning" />
                     <h2>Weight training</h2>
