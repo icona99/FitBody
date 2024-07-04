@@ -1,9 +1,19 @@
 import React from 'react';
 import './Classes.css'
 import SportCard from './SportCard';
+import * as userService from '../services/userService';
+import { useEffect, useState } from 'react';
 
 
 function Classes() {
+    
+    const [card, setCard] = useState([])
+
+    useEffect(() => {
+        userService.getAll()
+            .then(result = setCard(result))
+    }, []);
+
     return (
         <div className="classes">
             <div className="title">
