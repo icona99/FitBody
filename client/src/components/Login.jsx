@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 import "/src/components/Login.css"
 
 const Login = () => {
+  const baseUrl = 'http://localhost:3030/users/login';
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Login successful:', data);
+        navigate('/home');
+      } else {
+        setError(data.message);
+      }
+    } catch (error) {
+      setError('An error occurred. Please try again.');
+    }
+  };
   return (
     <div className="login-container">
       <div className="login-box">
@@ -9,7 +40,7 @@ const Login = () => {
           <h1>Login</h1>
           <img src="images/icon_7.png" alt="Logo" />
         </div>
-        <form action='#' method='GET'>
+        <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="email">EMAIL ADDRESS</label>
             <input type="email" id="email" name="email" placeholder="john_smith@yahoo.com" required />

@@ -1,22 +1,36 @@
+
+.classes {
+    background-image: url('/public/images/360_F_124887107_jHzYHrpwWVFm8PJM9Z0tgyblk5of0aUZ.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
+
+.title h2 {
+    font-size: 88px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+}
+
 .features {
     display: flex;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 11em auto;
-    margin-bottom: 0;
+    margin: 0 auto;
     padding: 0 1em;
+    flex-wrap: wrap;
 }
 
 .feature {
-    position: relative;
-    max-width: 300px;
-    width: 100%;
-    height: auto;
+    flex: 1 1 30%;
+    width: 200px;
+    height: 300px;
     background-color: rgb(233, 115, 4, 0.7);
     border: 1px solid rgb(255, 255, 255);
     color: white;
     padding: 2em;
-    flex: 1;
     margin: 1em;
     text-align: center;
     border-radius: 0.7em;
@@ -28,7 +42,7 @@
 }
 
 .feature img {
-    font-size: 48px;
+    font-size: 28px;
     color: white
 }
 
@@ -38,7 +52,7 @@
 }
 
 .feature p {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .circle-button {
