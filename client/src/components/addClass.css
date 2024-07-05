@@ -1,0 +1,52 @@
+.add-class-container {
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: rgba(233, 115, 4, 0.7);
+    border-radius: 0.7em;
+    color: white;
+    box-shadow: 0 0 1em rgba(146, 146, 146, 0.1);
+}
+
+.add-class-container h2 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5em;
+    border: none;
+    border-radius: 0.3em;
+}
+
+.form-group textarea {
+    height: 100px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 0.7em;
+    background-color: #ffffff;
+    color: orange;
+    border: none;
+    border-radius: 0.3em;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: orange;
+    color: white;
+}

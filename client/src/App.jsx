@@ -12,6 +12,7 @@ import Register from './components/Register'
 import About from './components/About';
 import Profile from './components/Profile';
 import Classes from './components/Classes';
+import AddClass from './components/addClass';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/classes' element={<Classes />} />
         <Route path='/about' element={<About />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/addClass' element={<AddClass />} />
       </Routes>
       <Footer />
     </Router>
