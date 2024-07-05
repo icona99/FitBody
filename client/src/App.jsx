@@ -12,7 +12,7 @@ import Register from './components/Register'
 import About from './components/About';
 import Profile from './components/Profile';
 import Classes from './components/Classes';
-import AddClass from './components/addClass';
+import AddClass from './components/AddClass';
 
 function App() {
   return (
