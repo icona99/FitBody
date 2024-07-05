@@ -6,13 +6,13 @@ import { useEffect, useState } from 'react';
 
 
 function Classes() {
-    
-    const [card, setCard] = useState([])
 
-    useEffect(() => {
-        userService.getAll()
-            .then(result = setCard(result))
-    }, []);
+    // const [cards, setCards = useState([])
+
+    // useEffect(() => {
+    //     userService.getAll()
+    //         .then(result = setCards(result))
+    // }, []);
 
     return (
         <div className="classes">
@@ -20,6 +20,11 @@ function Classes() {
                 <h2>We have variety of classes</h2>
             </div>
             <section class="features">
+{/* {cards.map((card)=>{
+    <SportCard 
+    {...card}
+        />
+})} */}
                 {/* <SportCard /> */}
                 <div class="feature">
                     <img src="/public/images/icon_7.png" alt="Weight traning" />
