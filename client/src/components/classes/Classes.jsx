@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Classes.css'
 import SportCard from './SportCard';
-import { useEffect, useState } from 'react';
 
 
-function Classes() {
+const baseUrl = `http://localhost:3030/jsonstore`;
+
+export default function Classes() {
 
     const [cards, setCards] = useState([]);
-    const baseUrl = `http://localhost:3030/jsonstore`;
-
     useEffect(() => {
         (async function getCards() {
             try {
@@ -29,10 +28,13 @@ function Classes() {
                 <h2>We have variety of classes</h2>
             </div>
             <section class="cards">
-                {/* { {cards.map((card)=>{
-    <SportCard  {...card}/>
-})} } */}
-                {<SportCard data={data} />}
+                {cards.map((card) => {
+                    <SportCard
+                        key={card._id}
+                        card={card}
+                    />
+                })}
+
                 {/* <div class="card">
                     <img src="/public/images/icon_7.png" alt="Weight training" />
                     <h2>Weight training</h2>
@@ -74,5 +76,3 @@ function Classes() {
         </div>
     )
 }
-
-export default Classes

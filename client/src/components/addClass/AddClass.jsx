@@ -4,6 +4,7 @@ import './addClass.css'
 const AddClass = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [level, setLevel] = useState('');
     const [image, setImage] = useState('');
 
     const handleSubmit = async (e) => {
@@ -11,6 +12,7 @@ const AddClass = () => {
         try {
             const response = await axios.post('http://localhost:3030/classes', {
                 title,
+                level,
                 description,
                 image
             });
@@ -54,9 +56,9 @@ const AddClass = () => {
                         <label htmlFor="level">Level</label>
                         <input
                             type="text"
-                            id="title"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
+                            id="level"
+                            value={level}
+                            onChange={(e) => setLevel(e.target.value)}
                             required
                         />
                     </div>
