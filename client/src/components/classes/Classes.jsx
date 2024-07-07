@@ -1,18 +1,27 @@
 import React from 'react';
 import './Classes.css'
 import SportCard from './SportCard';
-import * as userService from '../services/userService';
 import { useEffect, useState } from 'react';
 
 
 function Classes() {
 
-    // const [cards, setCards = useState([])
+    const [cards, setCards] = useState([]);
+    const baseUrl = `http://localhost:3030/jsonstore`;
 
-    // useEffect(() => {
-    //     userService.getAll()
-    //         .then(result = setCards(result))
-    // }, []);
+    useEffect(() => {
+        (async function getCards() {
+            try {
+                const response = await fetch(`${baseUrl}/classes`);
+                const result = await response.json();
+                const data = Object.values(result);
+
+                setCards(data);
+            } catch (error) {
+                alert(error.message)
+            }
+        })();
+    }, []);
 
     return (
         <div className="classes">
@@ -20,13 +29,11 @@ function Classes() {
                 <h2>We have variety of classes</h2>
             </div>
             <section class="cards">
-{/* {cards.map((card)=>{
-    <SportCard 
-    {...card}
-        />
-})} */}
-                {/* <SportCard /> */}
-                <div class="card">
+                {/* { {cards.map((card)=>{
+    <SportCard  {...card}/>
+})} } */}
+                {<SportCard data={data} />}
+                {/* <div class="card">
                     <img src="/public/images/icon_7.png" alt="Weight training" />
                     <h2>Weight training</h2>
                     <p>Pilates is a system of repetitive exercises performed on a yoga mat or other equipment to promote strength, stability, and flexibility. Pilates exercises develop the body through muscular effort that stems from the core.</p>
@@ -62,7 +69,7 @@ function Classes() {
                     <h2>Healthy diet plan</h2>
                     <p>However, a diet plan is tailored to an individual's health status, weight and lifestyle, along with their weight loss and health goals. The diet plan acts as a bespoke template to steer your eating behaviour, exercise and lifestyle management towards optimal health and wellbeing.</p>
                     <a href="/details" class="circle-button">+</a>
-                </div>
+                </div> */}
             </section>
         </div>
     )

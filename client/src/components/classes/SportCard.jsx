@@ -1,11 +1,13 @@
 
 
 const SportCard = (
-    // {
-//     imageUrl,
-//     title,
-//     description,
-// }
+    {
+        _id,
+    imageUrl,
+    title,
+    level,
+    description,
+}
 )=> {
     return (
     <div class="feature">

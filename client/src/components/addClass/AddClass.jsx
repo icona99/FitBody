@@ -2,28 +2,28 @@ import React, { useState } from 'react';
 import './addClass.css'
 
 const AddClass = () => {
-    // const [title, setTitle] = useState('');
-    // const [description, setDescription] = useState('');
-    // const [image, setImage] = useState('');
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [image, setImage] = useState('');
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const response = await axios.post('http://localhost:3030/classes', {
-    //             title,
-    //             description,
-    //             image
-    //         });
-    //         console.log(response.data);
-    //         alert('Class added successfully');
-    //         setTitle('');
-    //         setDescription('');
-    //         setImage('');
-    //     } catch (error) {
-    //         console.error(error);
-    //         alert('Error adding class');
-    //     }
-    // };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:3030/classes', {
+                title,
+                description,
+                image
+            });
+            console.log(response.data);
+            alert('Class added successfully');
+            setTitle('');
+            setDescription('');
+            setImage('');
+        } catch (error) {
+            console.error(error);
+            alert('Error adding class');
+        }
+    };
 
     return (
         <div className="add-class-container">
@@ -35,8 +35,8 @@ const AddClass = () => {
                         <input
                             type="text"
                             id="image"
-                            // value={image}
-                            // onChange={(e) => setImage(e.target.value)}
+                            value={image}
+                            onChange={(e) => setImage(e.target.value)}
                             required
                         />
                     </div>
@@ -45,8 +45,8 @@ const AddClass = () => {
                         <input
                             type="text"
                             id="title"
-                            // value={title}
-                            // onChange={(e) => setTitle(e.target.value)}
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
                             required
                         />
                     </div>
@@ -55,8 +55,8 @@ const AddClass = () => {
                         <input
                             type="text"
                             id="title"
-                            // value={title}
-                            // onChange={(e) => setTitle(e.target.value)}
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
                             required
                         />
                     </div>
@@ -64,8 +64,8 @@ const AddClass = () => {
                         <label htmlFor="description">Description</label>
                         <textarea
                             id="description"
-                            // value={description}
-                            // onChange={(e) => setDescription(e.target.value)}
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
                             required
                         />
                     </div>

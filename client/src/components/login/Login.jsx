@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
-import "/src/components/Login.css"
+import "./Login.css"
 
 const Login = () => {
   const baseUrl = 'http://localhost:3030/users/login';
