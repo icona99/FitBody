@@ -1,0 +1,76 @@
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+
+.header a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header a:hover {
+    color: #f39c12;
+}
+
+.header img {
+    height: 35px;
+    margin-right: 10px;
+}
+
+.header div {
+    font-size: 24px;
+}
+
+.header div span {
+    color: #f39c12;
+}
+
+/* Навигация */
+
+.main_nav {
+    margin-left: auto;
+}
+
+.main_nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main_nav li {
+    margin-left: 20px;
+}
+
+/* Адаптивност */
+@media (max-width: 600px) {
+    .header .container {
+        flex-direction: column;
+    }
+
+    .main_nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .main_nav li {
+        margin: 10px 0;
+    }
+
+    .phone {
+        margin-top: 10px;
+    }
+}
