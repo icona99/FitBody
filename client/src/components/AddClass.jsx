@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddClass.css';
+import './addClass.css'
 
 const AddClass = () => {
     // const [title, setTitle] = useState('');
@@ -42,6 +42,16 @@ const AddClass = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="title">Class Title</label>
+                        <input
+                            type="text"
+                            id="title"
+                            // value={title}
+                            // onChange={(e) => setTitle(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="level">Level</label>
                         <input
                             type="text"
                             id="title"
