@@ -14,11 +14,12 @@ export default function Classes() {
                 const response = await fetch(`${baseUrl}/classes`);
                 const result = await response.json();
                 const data = Object.values(result);
+                const cards=Object.values(data[0])
 
-                setCards(data);
+                setCards(cards);
             } catch (error) {
                 alert(error.message)
-            }
+            } 
         })();
     }, []);
 
@@ -28,12 +29,12 @@ export default function Classes() {
                 <h2>We have variety of classes</h2>
             </div>
             <section class="cards">
-                {cards.map((card) => {
+                {cards.map((card) => (
                     <SportCard
                         key={card._id}
                         card={card}
                     />
-                })}
+                ))}
 
                 {/* <div class="card">
                     <img src="/public/images/icon_7.png" alt="Weight training" />

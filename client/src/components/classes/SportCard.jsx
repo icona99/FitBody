@@ -1,17 +1,16 @@
+import React from 'react';
+import './SportCard.css'
 
-const SportCard = (
-    {
-        card
-    }
-) => {
-    return (
-        <div class="feature">
-            <img src={card.imageUrl} alt="Diet Plan" />
-            <h2>{card.title}</h2>
-            <p>{card.level}</p>
-            <p>{card.description}</p>
-            <a href="/details" class="circle-button">+</a>
-        </div>)
-}
+const SportCard = ({ card }) => {
+  return (
+    <div className="feature">
+      <img src={card.imageUrl} alt={card.title}/>
+      <h2>{card.title}</h2>
+      <p>{card.level}</p>
+      <p>{card.description}</p>
+      <a href="/details" className="circle-button">+</a>
+    </div>
+  );
+};
 
-export default SportCard
+export default SportCard;
