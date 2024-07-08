@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom'
-import "./Login.css"
+import { useNavigate } from 'react-router-dom';
+import "./Login.css";
 
 const Login = () => {
   const baseUrl = 'http://localhost:3030/users/login';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
@@ -25,7 +25,7 @@ const Login = () => {
 
       if (response.ok) {
         console.log('Login successful:', data);
-        navigate('/home');
+        navigate('/');
       } else {
         setError(data.message);
       }
@@ -33,6 +33,7 @@ const Login = () => {
       setError('An error occurred. Please try again.');
     }
   };
+
   return (
     <div className="login-container">
       <div className="login-box">
@@ -40,15 +41,32 @@ const Login = () => {
           <h1>Login</h1>
           <img src="images/icon_7.png" alt="Logo" />
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={submitHandler}>
           <div className="input-group">
             <label htmlFor="email">EMAIL ADDRESS</label>
-            <input type="email" id="email" name="email" placeholder="john_smith@yahoo.com" required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="john_smith@yahoo.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
           <div className="input-group">
             <label htmlFor="password">PASSWORD</label>
-            <input type="password" id="password" name="password" placeholder="********" required />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="********"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
           </div>
+          {error && <div className="error-message">{error}</div>}
           <button type="submit">Login</button>
         </form>
         <div className="signup-link">
