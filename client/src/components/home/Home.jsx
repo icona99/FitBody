@@ -32,7 +32,7 @@ export default function Home() {
                 <a href="/register">Join Now</a>
             </div>
             <section class="cards">
-                {cards.map((card)=>(
+                {cards.slice(-3).map((card)=>(
                     <SportCard
                     key={card._id}
                     card={card}
