@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Classes.css'
-import SportCard from './SportCard';
+import SportCard from './sportCard/SportCard';
 
 
 const baseUrl = `http://localhost:3030/jsonstore`;
@@ -14,12 +14,12 @@ export default function Classes() {
                 const response = await fetch(`${baseUrl}/classes`);
                 const result = await response.json();
                 const data = Object.values(result);
-                const cards=Object.values(data[0])
-
+                const cards = Object.values(data[0])
+                
                 setCards(cards);
             } catch (error) {
                 alert(error.message)
-            } 
+            }
         })();
     }, []);
 

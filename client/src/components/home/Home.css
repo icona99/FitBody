@@ -42,7 +42,7 @@
     cursor: pointer;
 }
 
-.featuress {
+.cards {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
@@ -50,7 +50,7 @@
     margin-top: 5em;
 }
 
-.featuree {
+.card {
     position: relative;
     max-width: 350px;
     width: 100%;
@@ -66,25 +66,25 @@
     box-shadow: 0 0 1em rgba(146, 146, 146, 0.1);
 }
 
-.featuree:hover {
+.card:hover {
     background: rgb(95, 95, 95);
 }
 
-.featuree img {
+.card img {
     font-size: 48px;
     color: white
 }
 
-.featuree h2 {
+.card h2 {
     font-size: 24px;
     margin: 1em 0;
 }
 
-.featuree p {
+.card p {
     font-size: 16px;
 }
 
-.circlee-button {
+.circle-button {
     position: absolute;
     bottom: 5px;
     right: 155px;
@@ -102,12 +102,12 @@
     transition: opacity 0.3s, transform 0.3s;
 }
 
-.featuree:hover .circlee-button {
+.feature:hover .circle-button {
     opacity: 1;
     transform: scale(1);
 }
 
-.circlee-button:hover {
+.circle-button:hover {
     background-color: orange;
     color: white;
 }
