@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './Home.module.css'; // Импортирайте стиловете като модул
+import styles from './Home.module.css'; 
 import SportCard from '../classes/sportCard/SportCard';
 
 const baseUrl = 'http://localhost:3030/jsonstore';
@@ -23,7 +23,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div className={styles.home}> {/* Използвайте класа от модулния CSS */}
+        <div className={styles.home}> 
             <div className={styles['home-text']}>
                 <h1> Get fit with us</h1>
                 <p>Pilates, Yoga, Fitness, Spinning &amp; many more</p>
@@ -31,7 +31,7 @@ export default function Home() {
             <div className={styles['home-button']}>
                 <a href="/register">Join Now</a>
             </div>
-            <section className={styles.cards}> {/* Използвайте класа за секцията с карти */}
+            <section className={styles.cards}> 
                 {cards.slice(-3).map((card) => (
                     <SportCard
                         key={card._id}

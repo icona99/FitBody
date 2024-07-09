@@ -47,12 +47,14 @@
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 5em;
+    margin-top: 8em;
+    margin-bottom: 9em;
+
 }
 
 .card {
     position: relative;
-    max-width: 350px;
+    max-width: 450px;
     width: 100%;
     height: auto;
     background-color: rgb(233, 115, 4, 0.7);
