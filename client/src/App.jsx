@@ -13,6 +13,7 @@ import About from './components/about/About';
 import Profile from './components/profile/Profile';
 import Classes from './components/classes/Classes';
 import AddClass from './components/addClass/AddClass';
+import DetailsCard from './components/classes/details/Details';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/addClass' element={<AddClass />} />
+        <Route path='/details' element={<DetailsCard />} />
       </Routes>
       <Footer />
     </Router>
