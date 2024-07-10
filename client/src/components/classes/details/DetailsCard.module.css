@@ -1,0 +1,69 @@
+.card {
+    flex: 1 1 30%;
+    max-width: 300px;
+    height: 260px;
+    background-color: rgba(233, 115, 4, 0.7);
+    border: 1px solid rgb(255, 255, 255);
+    color: white;
+    padding: 1em;
+    margin: 0.5em;
+    text-align: center;
+    border-radius: 0.7em;
+    box-shadow: 0 0 1em rgba(146, 146, 146, 0.1);
+    overflow: hidden;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.card:hover {
+    background: rgb(95, 95, 95);
+    transform: scale(1.05);
+}
+
+.card img {
+    font-size: 28px;
+    color: white;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.circle-button {
+    position: absolute;
+    bottom: 10px;
+    right: 125px;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    color: orange;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    font-size: 20px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.card:hover .circle-button {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.circle-button:hover {
+    background-color: orange;
+    color: white;
+}

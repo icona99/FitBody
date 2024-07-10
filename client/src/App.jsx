@@ -27,7 +27,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/addClass' element={<AddClass />} />
-        <Route path='/details' element={<DetailsCard />} />
+        <Route path='/details/:id' element={<DetailsCard />} />
       </Routes>
       <Footer />
     </Router>
