@@ -17,7 +17,7 @@ import Details from './components/classes/details/Details';
 
 function App() {
   return (
-    <Router>
+   <div>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,7 +30,7 @@ function App() {
         <Route path='/details/:id' element={<Details />} />
       </Routes>
       <Footer />
-    </Router>
+   </div>
   );
 }
 
