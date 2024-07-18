@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import DetailsCard from './DetailsCard';
+import DetailsCard from '../cardDetails/DetailsCard';
 
 const baseUrl = `http://localhost:3030/jsonstore`;
 

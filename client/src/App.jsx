@@ -13,7 +13,7 @@ import About from './components/about/About';
 import Profile from './components/profile/Profile';
 import Classes from './components/classes/Classes';
 import AddClass from './components/addClass/AddClass';
-import Details from './components/classes/details/Details';
+import Details from './components//details/Details';
 
 function App() {
   return (

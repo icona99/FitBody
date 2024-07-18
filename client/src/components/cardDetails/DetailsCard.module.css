@@ -1,7 +1,7 @@
 .card {
     flex: 1 1 30%;
     max-width: 300px;
-    height: 260px;
+    height: auto;
     background-color: rgba(233, 115, 4, 0.7);
     border: 1px solid rgb(255, 255, 255);
     color: white;
@@ -9,23 +9,32 @@
     margin: 0.5em;
     text-align: center;
     border-radius: 0.7em;
-    box-shadow: 0 0 1em rgba(146, 146, 146, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: background 0.3s, transform 0.3s;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
 }
 
 .card:hover {
-    background: rgb(95, 95, 95);
-    transform: scale(1.05);
+    background: rgba(95, 95, 95, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
-    font-size: 28px;
-    color: white;
+    width: 100%;
+    height: auto;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+    transition: transform 0.3s;
+}
+
+.card:hover img {
+    transform: scale(1.05);
 }
 
 .card h2 {
-    font-size: 20px;
+    font-size: 24px;
     margin: 10px 0;
 }
 
@@ -36,18 +45,23 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    font-size: 14px;
-    line-height: 1.4;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 1em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
 }
 
 .circle-button {
-    position: absolute;
-    bottom: 10px;
-    right: 125px;
     width: 40px;
     height: 40px;
     background-color: #ffffff;
-    color: orange;
+    color: rgba(233, 115, 4, 0.7);
     border-radius: 50%;
     text-align: center;
     line-height: 40px;
@@ -55,7 +69,7 @@
     font-size: 20px;
     opacity: 0;
     transform: scale(0.5);
-    transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s, background-color 0.3s, color 0.3s;
 }
 
 .card:hover .circle-button {
@@ -64,6 +78,6 @@
 }
 
 .circle-button:hover {
-    background-color: orange;
+    background-color: rgba(233, 115, 4, 0.7);
     color: white;
 }

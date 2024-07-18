@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Details.module.css';
+import styles from './DetailsCard.module.css'; 
 
 const DetailsCard = ({ card }) => {
   if (!card) {
@@ -14,12 +14,13 @@ const DetailsCard = ({ card }) => {
       <p>{card.level}</p>
       <p>{card.description}</p>
       <div className={styles.buttons}>
-        <Link to={`/edit/${card._id}`} className={styles.circleButton}>Edit</Link>
-        <Link to={`/delete/${card._id}`} className={styles.circleButton}>Delete</Link>
+        <Link to={`/edit/${card._id}`} className={styles.editButton}>Edit</Link>
+        <Link to={`/delete/${card._id}`} className={styles.deleteButton}>Delete</Link>
       </div>
     </div>
   );
 };
 
 export default DetailsCard;
+
 
