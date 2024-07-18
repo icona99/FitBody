@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css'; 
-import SportCard from '../classes/sportCard/SportCard';
+import SportCard from'../sportCard/SportCard'
 
 const baseUrl = 'http://localhost:3030/jsonstore';
 
