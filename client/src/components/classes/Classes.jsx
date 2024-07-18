@@ -14,9 +14,7 @@ export default function Classes() {
                 const response = await fetch(`${baseUrl}/classes`);
                 const result = await response.json();
                 const data = Object.values(result);
-                const cards = Object.values(data[0])
-                
-                setCards(cards);
+                setCards(data);
             } catch (error) {
                 alert(error.message)
             }

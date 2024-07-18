@@ -9,14 +9,17 @@ const DetailsCard = ({ card }) => {
 
   return (
     <div className={styles.card}>
-      <img src={card.imageUrl} alt={card.title} />
+      <img src={card.imageUrl} alt={card.title} className={styles.image} />
       <h2>{card.title}</h2>
       <p>{card.level}</p>
       <p>{card.description}</p>
-      <Link to="/edit" className="circle-button">Edit</Link>
-      <Link to="/delete" className="circle-button">Delete</Link>
+      <div className={styles.buttons}>
+        <Link to={`/edit/${card._id}`} className={styles.circleButton}>Edit</Link>
+        <Link to={`/delete/${card._id}`} className={styles.circleButton}>Delete</Link>
+      </div>
     </div>
   );
 };
 
 export default DetailsCard;
+
