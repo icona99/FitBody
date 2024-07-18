@@ -13,8 +13,7 @@ export default function Home() {
                 const response = await fetch(`${baseUrl}/classes`);
                 const result = await response.json();
                 const data = Object.values(result);
-                const cards = Object.values(data[0]);
-                setCards(cards);
+                setCards(data);
             } catch (error) {
                 console.log(error.message);
             }
