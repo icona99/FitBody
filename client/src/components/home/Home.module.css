@@ -8,12 +8,32 @@
     padding: 2em;
 }
 
+@keyframes colorChange {
+    0% {
+        color: #ffffff;
+    }
+    25% {
+        color: #e97304;
+    }
+    50% {
+        color: #fff;
+    }
+    75% {
+        color: #e97304;
+    }
+    100% {
+        color: #ffffff;
+    }
+}
+
 .home-text h1 {
-    font-size: 88px;
-    color: white;
+    font-size: 72px;
     text-align: center;
     font-weight: bold;
     margin: 0;
+    line-height: 1.2;
+    font-family: 'Roboto', sans-serif;
+    animation: colorChange 10s infinite;
 }
 
 .home-text p {
@@ -44,8 +64,7 @@
 
 .cards {
     display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     margin-top: 8em;
     margin-bottom: 9em;
@@ -54,7 +73,7 @@
 
 .card {
     position: relative;
-    max-width: 450px;
+    max-width: 850px;
     width: 100%;
     height: auto;
     background-color: rgb(233, 115, 4, 0.7);

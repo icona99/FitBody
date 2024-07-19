@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css'; 
-import SportCard from'../sportCard/SportCard'
+import SportCard from '../sportCard/SportCard';
 
 const baseUrl = 'http://localhost:3030/jsonstore';
 
 export default function Home() {
     const [cards, setCards] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         async function getCards() {
@@ -21,17 +22,27 @@ export default function Home() {
         getCards();
     }, []);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex(prevIndex => (prevIndex + 3) % cards.length);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, [cards.length]);
+
+    const displayedCards = cards.slice(currentIndex, currentIndex + 3);
+
     return (
-        <div className={styles.home}> 
+        <div className={styles.home}>
             <div className={styles['home-text']}>
-                <h1> Get fit with us</h1>
+                <h1>Your Journey Starts Here</h1>
                 <p>Pilates, Yoga, Fitness, Spinning &amp; many more</p>
             </div>
             <div className={styles['home-button']}>
                 <a href="/register">Join Now</a>
             </div>
-            <section className={styles.cards}> 
-                {cards.slice(-3).map((card) => (
+            <section className={styles.cards}>
+                {displayedCards.map((card) => (
                     <SportCard
                         key={card._id}
                         card={card}
@@ -41,3 +52,4 @@ export default function Home() {
         </div>
     );
 }
+
