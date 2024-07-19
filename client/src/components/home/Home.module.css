@@ -8,23 +8,7 @@
     padding: 2em;
 }
 
-@keyframes colorChange {
-    0% {
-        color: #ffffff;
-    }
-    25% {
-        color: #e97304;
-    }
-    50% {
-        color: #fff;
-    }
-    75% {
-        color: #e97304;
-    }
-    100% {
-        color: #ffffff;
-    }
-}
+
 
 .home-text h1 {
     font-size: 72px;
@@ -33,7 +17,8 @@
     margin: 0;
     line-height: 1.2;
     font-family: 'Roboto', sans-serif;
-    animation: colorChange 10s infinite;
+    padding-top: 3rem;
+    color: #fff;
 }
 
 .home-text p {
@@ -44,6 +29,27 @@
     margin-top: 0;
     margin-bottom: 2em;
 }
+/* .home-button a {
+    font-size: 18px;
+    background: linear-gradient(135deg, rgba(233, 115, 4, 0.8), rgba(255, 191, 0, 0.8));
+    border: 2px solid white;
+    border-radius: 0.7em;
+    color: white;
+    width: 300px;
+    text-decoration: none;
+    padding: 0.5em 2em;
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.home-button a:hover {
+    background: linear-gradient(135deg, rgba(114, 113, 113, 0.8), rgba(95, 95, 95, 0.8));
+    color: white;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} */
+
 
 .home-button a {
     font-size: 18px;
@@ -54,13 +60,30 @@
     width: 300px;
     text-decoration: none;
     padding: 0.5em 2em;
+    display: inline-block;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .home-button a:hover {
-    background: rgb(114, 113, 113);
-    color: rgb(255, 255, 255);
+    background: rgb(255, 165, 0);
+    color: white;
     cursor: pointer;
+    animation: pulse 1s infinite;
 }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
 
 .cards {
     display: flex;
