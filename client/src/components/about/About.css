@@ -67,7 +67,27 @@ span{
     color:rgb(233, 115, 4) ;
 }
 
-@media (max-width: 768px) {
+.about-map {
+    margin: 2em 0;
+    text-align: center;
+}
+
+.map-container {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-top: 56.25%; /* Ratio 16:9 */
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 600px) {
     .about-content {
         flex-direction: column;
         align-items: center;

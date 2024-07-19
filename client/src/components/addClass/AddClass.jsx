@@ -31,7 +31,7 @@ const AddClass = () => {
         <div className="add-class-container">
             <div className="add-class-box">
                 <h2>Add New Class</h2>
-                <form >
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="image">Image URL</label>
                         <input
