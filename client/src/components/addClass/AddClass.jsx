@@ -33,7 +33,7 @@ const AddClass = () => {
                 <h2>Add New Class</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="image">Image URL</label>
+                        <label htmlFor="image">Image</label>
                         <input
                             type="text"
                             id="image"
@@ -43,7 +43,7 @@ const AddClass = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="title">Class Title</label>
+                        <label htmlFor="title">Title</label>
                         <input
                             type="text"
                             id="title"
@@ -53,15 +53,18 @@ const AddClass = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="level">Level</label>
-                        <input
-                            type="text"
-                            id="level"
-                            value={level}
-                            onChange={(e) => setLevel(e.target.value)}
-                            required
-                        />
-                    </div>
+            <label htmlFor="level">Level</label>
+            <select
+                id="level"
+                value={level}
+                onChange={(e) => setLevel(e.target.value)}
+                required
+            >
+                <option value="">Select level</option>
+                <option value="beginner">Beginner</option>
+                <option value="advanced">Advanced</option>
+            </select>
+        </div>
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
                         <textarea

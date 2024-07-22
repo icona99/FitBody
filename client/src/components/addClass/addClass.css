@@ -41,7 +41,9 @@
 }
 
 .add-class-box input[type="text"],
-.add-class-box textarea {
+.add-class-box textarea,
+.add-class-box select
+{
     width: 90%;
     padding: 1em;
     margin: 0.5em 0;
