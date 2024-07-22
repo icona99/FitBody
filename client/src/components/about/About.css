@@ -1,77 +1,75 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
+    overflow: hidden;
     font-family: Arial, sans-serif;
 }
 
 .about-container {
     background: url('/images/login1.jpg');
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     height: 86vh;
+    color: white;
 }
 
 .about-header {
     text-align: center;
-    padding: 2em;
-    color:rgb(233, 115, 4);
+    padding: 1em;
+    color: rgb(233, 115, 4);
     width: 100%;
 }
 
 .about-header h1 {
-    font-size: 4em;
+    font-size: 3em;
     margin: 0;
     font-weight: bold;
 }
 
-.about-header p {
-    color: white;
-    font-size: 1.2em;
-    margin-top: 0.5em;
-}
 
 .about-content {
     display: flex;
     flex: 1;
+    padding: 2em;
+    gap: 1em;
     overflow: hidden;
-    padding: 1em;
-    align-items: stretch; 
 }
 
 .left-panel {
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-right: 1em;
-    gap: 1em; 
+    gap: 1em;
+    max-height: 100%;
 }
 
-.about-video {
-    flex: 1;
-}
-
-.about-video video {
-    width: 100%;
-    height: 100%; 
-    border-radius: 0.3em;
-    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
-}
-
+.about-video,
 .about-map {
-    text-align: center;
     flex: 1;
+    max-height: 40%;
+}
+
+.about-video video,
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+.about-map h2 {
+    margin: 0 0 0.5em 0;
 }
 
 .map-container {
     position: relative;
     padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
 }
@@ -90,18 +88,24 @@ html, body {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    padding: 1em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.5);
+    border-radius: 0.3em;
+    max-height: 100%;
 }
 
 .about-text h2 {
-    font-size: 2em;
+    font-size: 2.4em;
     color: rgb(233, 115, 4);
     margin-top: 0;
+    margin-bottom: 0.5em;
 }
 
 .about-text p {
-    font-size: 1.2em;
+    font-size: 1.4em;
+    font-weight: bold;
     line-height: 1.6;
-    color: white;
+    margin-bottom: 2em;
 }
 
 span {
