@@ -8,7 +8,7 @@ const DetailsCard = ({ card }) => {
   }
 
   return (
-    <div className={styles.card-container}>
+    <div className={styles.cardContainer}>
       <div className={styles.card}>
         <img src={card.imageUrl} alt={card.title} className={styles.image} />
         <h2>{card.title}</h2>
