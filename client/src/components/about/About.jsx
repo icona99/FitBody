@@ -10,10 +10,15 @@ const About = () => {
       <section className="about-content">
         <div className="left-panel">
           <div className="about-video">
-            <video controls>
-              <source src="/images/video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <iframe 
+              width="100%" 
+              height="315" 
+              src="https://www.youtube.com/embed/T-ixnL5WJyE?autoplay=1" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen>
+            </iframe>
           </div>
           <div className="about-map">
             <h2>Find Us Here</h2>
