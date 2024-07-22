@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './addClass.css'
+import './addClass.css';
 
 const AddClass = () => {
     const [title, setTitle] = useState('');
@@ -10,19 +10,30 @@ const AddClass = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3030/classes', {
-                title,
-                level,
-                description,
-                image
+            const response = await fetch('http://localhost:3030/classes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title,
+                    level,
+                    description,
+                    image
+                })
             });
-            console.log(response.data);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            console.log(data);
             alert('Class added successfully');
             setTitle('');
             setDescription('');
             setImage('');
+            setLevel('');
         } catch (error) {
-            console.error(error);
+            console.error('Error adding class:', error);
             alert('Error adding class');
         }
     };
@@ -53,18 +64,18 @@ const AddClass = () => {
                         />
                     </div>
                     <div className="form-group">
-            <label htmlFor="level">Level</label>
-            <select
-                id="level"
-                value={level}
-                onChange={(e) => setLevel(e.target.value)}
-                required
-            >
-                <option value="">Select level</option>
-                <option value="beginner">Beginner</option>
-                <option value="advanced">Advanced</option>
-            </select>
-        </div>
+                        <label htmlFor="level">Level</label>
+                        <select
+                            id="level"
+                            value={level}
+                            onChange={(e) => setLevel(e.target.value)}
+                            required
+                        >
+                            <option value="" disabled>Select level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
                         <textarea
