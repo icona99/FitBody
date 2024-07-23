@@ -36,19 +36,19 @@
     color: #f39c12;
 }
 
-/* Нови стилове за социалните икони */
+
 .footer-social {
     display: flex;
-    gap: 1em; /* Разстояние между иконките */
+    gap: 1em; 
 }
 
 .social-icon {
     color: white;
-    font-size: 24px; /* Размер на иконките */
+    font-size: 24px; 
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .social-icon:hover {
-    color: #f39c12; /* Цвят при ховър */
+    color: #f39c12; 
 }
