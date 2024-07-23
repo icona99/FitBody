@@ -11,9 +11,11 @@ import Classes from "./components/classes/Classes";
 import AddClass from "./components/addClass/AddClass";
 import Details from "./components/details/Details";
 import EditCard from "./components/edit/EditCard";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import NotFound from "./components/not-found/NotFound.jsx";
 
-import '../public/styles/styles.css'
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import '../public/styles/styles.css';
+
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
           <Route path="/addClass" element={<AddClass />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/edit/:id" element={<EditCard />} />
+          <Route path="*" element={ <NotFound/>} />
         </Routes>
       </div>
       <Footer />

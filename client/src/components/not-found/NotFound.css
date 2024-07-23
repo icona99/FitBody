@@ -1,0 +1,90 @@
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-30px);
+    }
+
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: rgb(233, 115, 4); 
+    }
+    100% {
+        color: #fff;
+    }
+}
+
+.not-found {
+    background: url('/images/login1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 86vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.not-found-content {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+}
+
+.not-found-content h1 {
+    font-size: 180px;
+    margin: 0;
+    font-weight: 900;
+    color: #fff;
+
+}
+
+.not-found-content p {
+    color: rgb(233, 115, 4);
+    font-size: 34px;
+
+}
+
+.animation {
+    color: rgb(233, 115, 4);
+    font-size: 80px;
+    animation: bounce 2s infinite;
+}
+
+.not-found-content a {
+    color: rgb(233, 115, 4);
+    text-decoration: none;
+    font-size: 34px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    animation: colorChange 3s infinite alternate;
+}
+
+.not-found-content a:hover {
+    color: #fff;
+
+}
+
+
+
