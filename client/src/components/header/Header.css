@@ -1,47 +1,40 @@
-
 .header {
     background-color: #333;
     color: white;
     padding: 1em;
-}
-
-.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
 }
 
+.header-logo {
+    display: flex;
+    align-items: center;
+}
 
+.header-logo img {
+    height: 35px;
+    margin-right: 10px;
+}
+
+.header-logo div {
+    font-size: 24px;
+}
+
+.header-logo div span {
+    color: #f39c12;
+}
 
 .header a {
     color: white;
     text-decoration: none;
     display: flex;
     align-items: center;
+    font-size: 24px;
 }
 
 .header a:hover {
     color: #f39c12;
-}
-
-.header img {
-    height: 35px;
-    margin-right: 10px;
-}
-
-.header div {
-    font-size: 24px;
-}
-
-.header div span {
-    color: #f39c12;
-}
-
-/* Навигация */
-
-.main_nav {
-    margin-left: auto;
 }
 
 .main_nav ul {
@@ -55,7 +48,6 @@
     margin-left: 20px;
 }
 
-/* Адаптивност */
 @media (max-width: 600px) {
     .header .container {
         flex-direction: column;

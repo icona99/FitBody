@@ -4,7 +4,6 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="container">
         <div className="footer-logo">
           <a href="/">
             <img src="images/icon_7.png" alt="logo" />
@@ -50,10 +49,10 @@ export default function Footer() {
             <i className="fab fa-linkedin-in"></i>
           </a>
         </div>
-      </div>
     </footer>
   );
 }
+
 
 
 

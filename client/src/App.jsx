@@ -13,7 +13,7 @@ import Details from "./components/details/Details";
 import EditCard from "./components/edit/EditCard";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-// import '../public/styles/styles.css'
+import '../public/styles/styles.css'
 
 function App() {
   return (

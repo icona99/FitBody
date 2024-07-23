@@ -5,8 +5,7 @@ import './Header.css';
 function Header() {
     return (
         <header className="header">
-            <div className="container">
-                <div>
+                <div className="header-logo">
                     <Link to="/">
                         <img src="images/icon_7.png" alt="logo" />
                         <div>
@@ -39,9 +38,8 @@ function Header() {
                         </li>
                     </ul>
                 </nav>
-            </div>
         </header>
-    )
+    );
 }
 
 export default Header;
