@@ -29,7 +29,7 @@ const contextData={
   userId:authState._id,
   email:authState.email,
   accessToken:authState.accessToken,
-  iwsAuthenticated:!!authState.email,
+  isAuthenticated:!!authState.email,
   changeAuthState,
 }
 
