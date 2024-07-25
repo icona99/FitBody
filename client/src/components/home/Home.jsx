@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css'; 
 import SportCard from '../sportCard/SportCard';
 
-const baseUrl = 'http://localhost:3030/jsonstore';
+const baseUrl = 'http://localhost:3030/data';
 
 export default function Home() {
     const [cards, setCards] = useState([]);

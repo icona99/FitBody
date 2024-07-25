@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
@@ -12,13 +12,29 @@ import AddClass from "./components/addClass/AddClass";
 import Details from "./components/details/Details";
 import EditCard from "./components/edit/EditCard";
 import NotFound from "./components/not-found/NotFound.jsx";
+import { authContext } from "./context/authContext.js";
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../public/styles/styles.css';
 
 
 function App() {
+
+const [authState,setAuthState]=useState({})
+
+const changeAuthState=(state)=>{
+  setAuthState(state)
+}
+const contextData={
+  userId:authState._id,
+  email:authState.email,
+  accessToken:authState.accessToken,
+  iwsAuthenticated:!!authState.email,
+  changeAuthState,
+}
+
   return (
+    <authContext.Provider value={contextData}>
     <div className="container">
       <Header />
       <div className="main">
@@ -37,6 +53,7 @@ function App() {
       </div>
       <Footer />
     </div>
+    </authContext.Provider>
   );
 }
 

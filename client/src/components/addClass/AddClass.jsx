@@ -10,7 +10,7 @@ const AddClass = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3030/classes', {
+            const response = await fetch('http://localhost:3030/data/classes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

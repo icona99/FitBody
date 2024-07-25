@@ -3,7 +3,7 @@ import DetailsCard from "../cardDetails/DetailsCard";
 import styles from "./Edit.module.css";
 import { useEffect, useState } from "react";
 
-const baseUrl = 'http://localhost:3030/jsonstore'
+const baseUrl = 'http://localhost:3030/data'
 
 export default function EditCard() {
 

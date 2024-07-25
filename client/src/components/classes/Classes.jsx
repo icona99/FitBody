@@ -3,7 +3,7 @@ import './Classes.css'
 import SportCard from '../sportCard/SportCard'
  
 
-const baseUrl = `http://localhost:3030/jsonstore`;
+const baseUrl = `http://localhost:3030/data`;
 
 export default function Classes() {
 
