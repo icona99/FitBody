@@ -8,8 +8,10 @@ export default function Classes() {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
-        cardsAPI.getAll()
-            .then(result => setCards(result))
+        (async () => {
+            const result = await cardsAPI.getAll()
+            setCards(result)
+        })();
     }, []);
 
     return (
