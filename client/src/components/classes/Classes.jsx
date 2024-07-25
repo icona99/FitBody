@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './Classes.css'
 import SportCard from '../sportCard/SportCard'
- 
-
-const baseUrl = `http://localhost:3030/data`;
+import * as cardsAPI from '../../api/classesAPI'
 
 export default function Classes() {
 
     const [cards, setCards] = useState([]);
+
     useEffect(() => {
-        (async function getCards() {
-            try {
-                const response = await fetch(`${baseUrl}/classes`);
-                const result = await response.json();
-                const data = Object.values(result);
-                setCards(data);
-            } catch (error) {
-                alert(error.message)
-            }
-        })();
+        cardsAPI.getAll()
+            .then(result => setCards(result))
     }, []);
 
     return (
@@ -27,12 +18,18 @@ export default function Classes() {
                 <h2>We have variety of classes</h2>
             </div>
             <section class="cards">
-                {cards.map((card) => (
-                    <SportCard
-                        key={card._id}
-                        card={card}
-                    />
-                ))}
+                {cards.length > 0
+                    ? cards.map((card) => (
+                        <SportCard
+                            key={card._id}
+                            card={card}
+                        />
+                    ))
+
+                    : <h3 style={{ color: 'white' }}>No classes yet</h3>
+
+                }
+
 
                 {/* <div class="card">
                     <img src="/public/images/icon_7.png" alt="Weight training" />
