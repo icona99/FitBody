@@ -40,7 +40,6 @@
     text-decoration: none;
     padding: 0.5em 2em;
     display: inline-block;
-    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .home-button a:hover {

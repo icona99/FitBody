@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 86vh;
+  height: 87vh;
 }
 
 .card {
@@ -32,8 +32,6 @@
 }
 
 .card p {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
@@ -43,24 +41,29 @@
 }
 
 .buttons {
+  display: flex;
   margin: 2em;
+  justify-content: center;
+  gap: 2em;
 }
 
 .editButton,
 .deleteButton {
-  display: inline-block;
-  font-size: large;
-  margin: 0 5px;
-  padding:1em 2em;
-  color: rgba(233, 115, 4);
-  background-color: rgb(255, 255, 255, 0.5);
-  border: none;
-  border-radius: 0.3em;
+  font-size: 18px;
+  background: rgb(233, 115, 4);
+  border: 2px solid white;
+  border-radius: 0.7em;
+  color: white;
+  width: 100px;
   text-decoration: none;
+  padding: 0.5em 2em;
+  display: inline-block;
   
 }
 
 .editButton:hover,
 .deleteButton:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgb(255, 165, 0);
+  color: white;
+  cursor: pointer;
 }
