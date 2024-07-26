@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Classes.css'
 import SportCard from '../sportCard/SportCard'
-import * as cardsAPI from '../../api/classesAPI'
+import  classesAPI from '../../api/classesAPI'
 
 export default function Classes() {
 
@@ -9,7 +9,7 @@ export default function Classes() {
 
     useEffect(() => {
         (async () => {
-            const result = await cardsAPI.getAll()
+            const result = await classesAPI.getAll()
             setCards(result)
         })();
     }, []);
