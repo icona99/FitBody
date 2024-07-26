@@ -10,7 +10,7 @@ import Profile from "./components/profile/Profile";
 import Classes from "./components/classes/Classes";
 import AddClass from "./components/addClass/AddClass";
 import Details from "./components/details/Details";
-import EditCard from "./components/edit/EditCard";
+// import EditCard from "./components/edit/EditCard";
 import NotFound from "./components/not-found/NotFound.jsx";
 import { authContext } from "./context/authContext.js";
 
@@ -46,8 +46,8 @@ const contextData={
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/addClass" element={<AddClass />} />
-          <Route path="/details/:id" element={<Details />} />
-          <Route path="/edit/:id" element={<EditCard />} />
+          <Route path="/classes/:classId/details" element={<Details />} />
+          {/* <Route path="/edit/:id" element={<EditCard />} /> */}
           <Route path="*" element={ <NotFound/>} />
         </Routes>
       </div>

@@ -9,7 +9,7 @@ const SportCard = ({ card }) => {
       <h2>{card.title}</h2>
       <p>{card.level}</p>
       <p>{card.description}</p>
-      <Link to={`/details/${card._id}`} className="circle-button">+</Link>
+      <Link to={`/classes/${card._id}/details`} className="circle-button">+</Link>
     </div>
   );
 };

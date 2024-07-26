@@ -1,26 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import DetailsCard from '../cardDetails/DetailsCard';
+import classesAPI from '../../api/classesAPI';
+import styles from './Details.module.css';
+import {Link} from 'react-router-dom'
 
-const baseUrl = `http://localhost:3030/data`;
 
 const Details = () => {
-    const { id } = useParams();
-    const [card, setCard] = useState(null);
+    const [card, setCard] = useState({});
 
     useEffect(() => {
-        (async function fetchCard() {
+        (async ()=> {
             try {
-                const response = await fetch(`${baseUrl}/classes/${id}`);
-                const result = await response.json();
+                const result = await classesAPI.getOne();
                 setCard(result); 
             } catch (error) {
                 alert(error.message);
             }
         })();
-    }, [id]);
+    });
 
-    return <DetailsCard card={card} />;
+    return (<div className={styles.cardContainer}>
+    <div className={styles.card}>
+      <img src={card.imageUrl} alt={card.title} className={styles.image} />
+      <h2>{card.title}</h2>
+      <p>{card.level}</p>
+      <p>{card.description}</p>
+      <div className={styles.buttons}>
+        <Link to={`/edit/${card._id}`} className={styles.editButton}>Edit</Link>
+        <Link to={`/delete/${card._id}`} className={styles.deleteButton}>Delete</Link>
+      </div>
+    </div>
+  </div>
+  );
 };
+
 
 export default Details;

@@ -8,3 +8,12 @@ export const getAll = async () => {
 
     return cards;
 }
+
+export const getOne = (classId) => request.get(`${BASE_URL}/${classId}`);
+
+const classesAPI={
+    getAll,
+    getOne
+}
+
+export default classesAPI
