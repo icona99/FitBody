@@ -5,7 +5,6 @@ import classesAPI from '../../api/classesAPI';
 
 export default function Home() {
     const [latestCards, setLatestCards] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         (async () => {
@@ -18,16 +17,6 @@ export default function Home() {
         })();
     }, []);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex(prevIndex => (prevIndex + 3) % latestCards.length);
-        }, 3000);
-
-        return () => clearInterval(interval);
-    }, [latestCards.length]);
-
-    const displayedCards = latestCards.slice(currentIndex, currentIndex + 3);
-
     return (
         <div className={styles.home}>
             <div className={styles['home-text']}>
@@ -38,7 +27,7 @@ export default function Home() {
                 <a href="/register">Join Now</a>
             </div>
             <section className={styles.cards}>
-                <div className={styles['card-container']} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                <div className={styles['card-container']}>
                     {latestCards.map((card) => (
                         <SportCard
                             key={card._id}
