@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import classesAPI from '../../api/classesAPI';
 import styles from './Details.module.css';
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 
 const Details = () => {
     const [card, setCard] = useState({});
+    const {classId}=useParams();
 
     useEffect(() => {
         (async ()=> {
             try {
-                const result = await classesAPI.getOne();
+                const result = await classesAPI.getOne(classId);
                 setCard(result); 
             } catch (error) {
                 alert(error.message);
             }
         })();
-    });
+    }, [classId]);
 
     return (<div className={styles.cardContainer}>
     <div className={styles.card}>
