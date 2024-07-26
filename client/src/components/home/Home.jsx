@@ -1,36 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css'; 
 import SportCard from '../sportCard/SportCard';
-
-const baseUrl = 'http://localhost:3030/data';
+import classesAPI from '../../api/classesAPI';
 
 export default function Home() {
-    const [cards, setCards] = useState([]);
+    const [latestCards, setLatestCards] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
-        async function getCards() {
+        (async () => {
             try {
-                const response = await fetch(`${baseUrl}/classes`);
-                const result = await response.json();
-                const data = Object.values(result);
-                setCards(data);
+                const result = await classesAPI.getAll();
+                setLatestCards(result.slice(-3));
             } catch (error) {
                 console.log(error.message);
             }
-        }
-        getCards();
+        })();
     }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentIndex(prevIndex => (prevIndex + 3) % cards.length);
+            setCurrentIndex(prevIndex => (prevIndex + 3) % latestCards.length);
         }, 3000);
 
         return () => clearInterval(interval);
-    }, [cards.length]);
+    }, [latestCards.length]);
 
-    const displayedCards = cards.slice(currentIndex, currentIndex + 3);
+    const displayedCards = latestCards.slice(currentIndex, currentIndex + 3);
 
     return (
         <div className={styles.home}>
@@ -42,14 +38,16 @@ export default function Home() {
                 <a href="/register">Join Now</a>
             </div>
             <section className={styles.cards}>
-                {displayedCards.map((card) => (
-                    <SportCard
-                        key={card._id}
-                        card={card}
-                    />
-                ))}
+                <div className={styles['card-container']} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                    {latestCards.map((card) => (
+                        <SportCard
+                            key={card._id}
+                            card={card}
+                            className={styles.card}
+                        />
+                    ))}
+                </div>
             </section>
         </div>
     );
 }
-
