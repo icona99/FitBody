@@ -4,7 +4,7 @@ import './Register.css';
 
 const RegistrationForm = () => {
   const baseUrl = 'http://localhost:3030/users/register';
-  const [fullname, setFullname] = useState('');
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -19,14 +19,14 @@ const RegistrationForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ fullname, email, password }),
+        body: JSON.stringify({ fullName, email, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
         console.log('Registration successful:', data);
-        navigate('/login');
+        navigate('/classes');
       } else {
         setError(data.message);
       }
@@ -44,14 +44,14 @@ const RegistrationForm = () => {
         </div>
         <form onSubmit={submitHandler}>
           <div className="input-group">
-            <label htmlFor="fullname">FULL NAME</label>
+            <label htmlFor="fullName">FULL NAME</label>
             <input 
               type="text" 
-              id="fullname" 
-              name="fullname" 
+              id="fullName" 
+              name="fullName" 
               placeholder="John Smith" 
-              value={fullname}
-              onChange={(e) => setFullname(e.target.value)}
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
               required 
             />
           </div>

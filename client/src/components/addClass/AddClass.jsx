@@ -1,74 +1,70 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import  useForm  from '../../hooks/UseForm';
 import './addClass.css';
+import { useCreateClass } from '../../hooks/UseClasses';
+
+const initialValues = {
+    title: '',
+    description: '',
+    level: '',
+    image: ''
+}
 
 const AddClass = () => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [level, setLevel] = useState('');
-    const [image, setImage] = useState('');
+    const navigate = useNavigate();
+    const createClass = useCreateClass();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const createHandler = async (values) => {
         try {
-            const response = await fetch('http://localhost:3030/data/classes', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    title,
-                    level,
-                    description,
-                    image
-                })
-            });
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
-            console.log(data);
-            alert('Class added successfully');
-            setTitle('');
-            setDescription('');
-            setImage('');
-            setLevel('');
+            const { _id: classId } = await createClass(values);
+
+            navigate(`/classes`);
         } catch (error) {
-            console.error('Error adding class:', error);
-            alert('Error adding class');
+            console.log(error.message);
         }
-    };
+    }
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(initialValues, createHandler)
+
 
     return (
         <div className="add-class-container">
             <div className="add-class-box">
                 <h2>Add New Class</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={submitHandler}>
                     <div className="form-group">
                         <label htmlFor="image">Image</label>
                         <input
+                        name='image'
                             type="text"
                             id="image"
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}
+                            value={values.image}
+                            onChange={changeHandler}
                             required
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="title">Title</label>
                         <input
+                        name='title'
                             type="text"
                             id="title"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
+                            value={values.title}
+                            onChange={changeHandler}
                             required
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="level">Level</label>
                         <select
+                        name='level'
                             id="level"
-                            value={level}
-                            onChange={(e) => setLevel(e.target.value)}
+                            value={values.level}
+                            onChange={changeHandler}
                             required
                         >
                             <option value="" disabled>Select level</option>
@@ -79,9 +75,10 @@ const AddClass = () => {
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
                         <textarea
+                        name='description'
                             id="description"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
+                            value={values.description}
+                            onChange={changeHandler}
                             required
                         />
                     </div>

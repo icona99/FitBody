@@ -2,18 +2,17 @@ import * as request from './requester'
 
 const BASE_URL = 'http://localhost:3030/data/classes'
 
-export const getAll = async () => {
-    const result = await request.get(BASE_URL)
-    const cards = Object.values(result);
+export const getAll = () => request.get(BASE_URL);
 
-    return cards;
-}
 
 export const getOne = (classId) => request.get(`${BASE_URL}/${classId}`);
 
-const classesAPI={
+export const create = (classData) => request.post(`${BASE_URL}`, classData);
+
+const classesAPI = {
     getAll,
-    getOne
+    getOne,
+    create,
 }
 
 export default classesAPI

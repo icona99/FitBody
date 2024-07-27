@@ -20,39 +20,40 @@ import '../public/styles/styles.css';
 
 function App() {
 
-const [authState,setAuthState]=useState({})
+  const [authState, setAuthState] = useState({})
 
-const changeAuthState=(state)=>{
-  setAuthState(state)
-}
-const contextData={
-  userId:authState._id,
-  email:authState.email,
-  accessToken:authState.accessToken,
-  isAuthenticated:!!authState.email,
-  changeAuthState,
-}
+  const changeAuthState = (state) => {
+    localStorage.setItem('accessToken',state.accessToken)
+    setAuthState(state)
+  }
+  const contextData = {
+    userId: authState._id,
+    email: authState.email,
+    accessToken: authState.accessToken,
+    isAuthenticated: !!authState.email,
+    changeAuthState,
+  }
 
   return (
     <authContext.Provider value={contextData}>
-    <div className="container">
-      <Header />
-      <div className="main">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/classes" element={<Classes />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/addClass" element={<AddClass />} />
-          <Route path="/classes/:classId/details" element={<Details />} />
-          {/* <Route path="/edit/:id" element={<EditCard />} /> */}
-          <Route path="*" element={ <NotFound/>} />
-        </Routes>
+      <div className="container">
+        <Header />
+        <div className="main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/classes" element={<Classes />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/addClass" element={<AddClass />} />
+            <Route path="/classes/:classId/details" element={<Details />} />
+            {/* <Route path="/edit/:id" element={<EditCard />} /> */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
     </authContext.Provider>
   );
 }
