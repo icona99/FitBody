@@ -16,6 +16,9 @@ import { authContext } from "./context/authContext.js";
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../public/styles/styles.css';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 
 
 function App() {

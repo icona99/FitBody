@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Slider from "react-slick";
 import styles from './Home.module.css'; 
 import SportCard from '../sportCard/SportCard';
 import classesAPI from '../../api/classesAPI';
@@ -17,6 +18,16 @@ export default function Home() {
         })();
     }, []);
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 1500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+    };
+
     return (
         <div className={styles.home}>
             <div className={styles['home-text']}>
@@ -27,15 +38,13 @@ export default function Home() {
                 <a href="/register">Join Now</a>
             </div>
             <section className={styles.cards}>
-                <div className={styles['card-container']}>
+                <Slider {...settings}>
                     {latestCards.map((card) => (
-                        <SportCard
-                            key={card._id}
-                            card={card}
-                            className={styles.card}
-                        />
+                        <div key={card._id} className={styles['card-container']}>
+                            <SportCard card={card} className={styles.card} />
+                        </div>
                     ))}
-                </div>
+                </Slider>
             </section>
         </div>
     );

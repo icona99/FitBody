@@ -60,25 +60,12 @@
 }
 
 .cards {
-    display: flex;
-    overflow: hidden; 
-    max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 8em;
-    margin-bottom: 9em;
-    height: 600px; 
-    position: relative;
+    padding: 3em 0;
 }
 
 .card-container {
-    display: flex;
-    transition: transform 1s ease-in-out;
-    height: 100%;
-}
-
-.card {
-    flex: 0 0 100%; 
-    box-sizing: border-box;
     padding: 1em;
     text-align: center;
 }
