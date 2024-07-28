@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import  useForm  from '../../hooks/UseForm';
+import useForm from '../../hooks/UseForm';
 import './addClass.css';
 import { useCreateClass } from '../../hooks/UseClasses';
 
@@ -9,7 +9,7 @@ const initialValues = {
     description: '',
     level: '',
     image: ''
-}
+};
 
 const AddClass = () => {
     const navigate = useNavigate();
@@ -18,18 +18,17 @@ const AddClass = () => {
     const createHandler = async (values) => {
         try {
             const { _id: classId } = await createClass(values);
-
             navigate(`/classes`);
         } catch (error) {
             console.log(error.message);
         }
-    }
+    };
+
     const {
         values,
         changeHandler,
         submitHandler,
-    } = useForm(initialValues, createHandler)
-
+    } = useForm(initialValues, createHandler);
 
     return (
         <div className="add-class-container">
@@ -39,7 +38,7 @@ const AddClass = () => {
                     <div className="form-group">
                         <label htmlFor="image">Image</label>
                         <input
-                        name='image'
+                            name='image'
                             type="text"
                             id="image"
                             value={values.image}
@@ -50,7 +49,7 @@ const AddClass = () => {
                     <div className="form-group">
                         <label htmlFor="title">Title</label>
                         <input
-                        name='title'
+                            name='title'
                             type="text"
                             id="title"
                             value={values.title}
@@ -61,7 +60,7 @@ const AddClass = () => {
                     <div className="form-group">
                         <label htmlFor="level">Level</label>
                         <select
-                        name='level'
+                            name='level'
                             id="level"
                             value={values.level}
                             onChange={changeHandler}
@@ -75,14 +74,13 @@ const AddClass = () => {
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
                         <textarea
-                        name='description'
+                            name='description'
                             id="description"
                             value={values.description}
                             onChange={changeHandler}
                             required
                         />
                     </div>
-
                     <button type="submit">Add Class</button>
                 </form>
             </div>

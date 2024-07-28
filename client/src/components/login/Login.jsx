@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { authContext } from '../../context/authContext'; // Импортирайте вашия authContext
 import "./Login.css";
 
 const Login = () => {
@@ -7,10 +8,12 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const { changeAuthState } = useContext(authContext); // Използвайте changeAuthState
     const navigate = useNavigate();
 
     const submitHandler = async (e) => {
         e.preventDefault();
+        console.log({ email, password })
 
         try {
             const response = await fetch(baseUrl, {
@@ -25,6 +28,8 @@ const Login = () => {
 
             if (response.ok) {
                 console.log('Login successful:', data);
+                localStorage.setItem('accessToken', data.accessToken);
+                changeAuthState(data); // Актуализирайте контекста на автентикацията
                 navigate('/');
             } else {
                 setError(data.message);

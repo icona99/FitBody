@@ -1,3 +1,4 @@
+/* Header.css */
 .header {
     background-color: #333;
     color: white;
@@ -44,12 +45,17 @@
     display: flex;
 }
 
+.main_nav .guest, .main_nav .user {
+    display: flex;
+}
+
 .main_nav li {
     margin-left: 20px;
 }
 
+/* Mobile responsive styles */
 @media (max-width: 600px) {
-    .header .container {
+    .header {
         flex-direction: column;
         align-items: flex-start;
     }

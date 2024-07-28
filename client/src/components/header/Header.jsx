@@ -17,7 +17,7 @@ function Header() {
             </div>
             <nav className="main_nav">
                 <ul>
-                    {!isAuthenticated ? (
+                    {/* {!isAuthenticated ? ( */}
                         <div className="guest">
                             <li className="active">
                                 <Link to="/">Home</Link>
@@ -29,7 +29,7 @@ function Header() {
                                 <Link to="/register">Register</Link>
                             </li>
                         </div>
-                    ) : (
+                    {/* ) : ( */}
                         <div className="user">
                             <li>
                                 <Link to="/classes">Classes</Link>
@@ -47,7 +47,7 @@ function Header() {
                                 <Link to="/logout">Logout</Link>
                             </li>
                         </div>
-                    )}
+                    {/* )} */}
                 </ul>
             </nav>
         </header>
