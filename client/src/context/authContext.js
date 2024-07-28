@@ -8,3 +8,4 @@ export const authContext = createContext({
     isAuthenticated: false,
     changeAuthState: (authState = {}) => null,
 })
+

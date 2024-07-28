@@ -25,13 +25,20 @@ function App() {
   const changeAuthState = (state) => {
     localStorage.setItem('accessToken',state.accessToken)
     setAuthState(state)
-  }
+  };
+
+  const logout = () => {
+    localStorage.removeItem('accessToken');
+    setAuthState({});
+};
+
   const contextData = {
     userId: authState._id,
     email: authState.email,
     accessToken: authState.accessToken,
     isAuthenticated: !!authState.email,
     changeAuthState,
+    logout,
   }
 
   return (

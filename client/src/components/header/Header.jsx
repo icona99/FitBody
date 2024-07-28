@@ -1,10 +1,17 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import { authContext } from '../../context/authContext.js';
 
 function Header() {
-    const { isAuthenticated } = useContext(authContext);
+    const { isAuthenticated, logout } = useContext(authContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate('/');
+    };
+
     return (
         <header className="header">
             <div className="header-logo">
@@ -17,7 +24,7 @@ function Header() {
             </div>
             <nav className="main_nav">
                 <ul>
-                    {/* {!isAuthenticated ? ( */}
+                    {!isAuthenticated ? (
                         <div className="guest">
                             <li className="active">
                                 <Link to="/">Home</Link>
@@ -29,7 +36,7 @@ function Header() {
                                 <Link to="/register">Register</Link>
                             </li>
                         </div>
-                    {/* ) : ( */}
+                    ) : (
                         <div className="user">
                             <li>
                                 <Link to="/classes">Classes</Link>
@@ -44,10 +51,10 @@ function Header() {
                                 <Link to="/addClass">Add Class</Link>
                             </li>
                             <li>
-                                <Link to="/logout">Logout</Link>
+                                <button onClick={handleLogout} className="logout-button">Logout</button>
                             </li>
                         </div>
-                    {/* )} */}
+                    )}
                 </ul>
             </nav>
         </header>
