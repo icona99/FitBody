@@ -61,7 +61,6 @@
     margin-top: 1em;
     border: 1px solid #e97304;
     font-size: 18px;
-    transition: background 0.3s, color 0.3s;
 }
 
 .add-class-box button:hover {

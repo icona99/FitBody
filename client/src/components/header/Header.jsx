@@ -9,7 +9,6 @@ function Header() {
 
     const handleLogout = () => {
         logout();
-        navigate('/');
     };
 
     return (
@@ -24,11 +23,12 @@ function Header() {
             </div>
             <nav className="main_nav">
                 <ul>
+                    <li className="active">
+                        <Link to="/">Home</Link>
+                    </li>
                     {!isAuthenticated ? (
                         <div className="guest">
-                            <li className="active">
-                                <Link to="/">Home</Link>
-                            </li>
+
                             <li>
                                 <Link to="/login">Login</Link>
                             </li>
@@ -44,17 +44,18 @@ function Header() {
                             <li>
                                 <Link to="/profile">Profile</Link>
                             </li>
-                            <li>
-                                <Link to="/about">About us</Link>
-                            </li>
+
                             <li>
                                 <Link to="/addClass">Add Class</Link>
                             </li>
                             <li>
-                                <button onClick={handleLogout} className="logout-button">Logout</button>
+                                <Link to="/" onClick={handleLogout} className="logout-button">Logout</Link>
                             </li>
                         </div>
                     )}
+                    <li>
+                        <Link to="/about">About us</Link>
+                    </li>
                 </ul>
             </nav>
         </header>

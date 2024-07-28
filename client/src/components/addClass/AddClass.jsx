@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/UseForm';
 import './addClass.css';
@@ -20,7 +20,7 @@ const AddClass = () => {
             const { _id: classId } = await createClass(values);
             navigate(`/classes`);
         } catch (error) {
-            console.log(error.message);
+            alert(error.message);
         }
     };
 

@@ -2,7 +2,6 @@ async function requester(method, url, data) {
     const options = {};
 
     const accessToken = localStorage.getItem('accessToken');
-    console.log('Access Token:', accessToken);
 
     if (accessToken) {
         options.headers = {
@@ -25,11 +24,6 @@ async function requester(method, url, data) {
 
     const response = await fetch(url, options);
     const result = await response.json();
-
-    if (!response.ok) {
-        console.error('Error:', result);
-        throw new Error(result.message || 'Something went wrong');
-    }
 
     return result;
 }
