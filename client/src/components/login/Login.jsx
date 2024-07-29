@@ -30,12 +30,15 @@ const Login = () => {
                 localStorage.setItem('accessToken', data.accessToken);
                 changeAuthState(data); 
                 navigate('/');
-            } else {
-                setError(data.message);
+            } else if (response.status === 403) {
+                setError('Invalid email or password.');
+              } else {
+                setError(data.message || 'An error occurred. Please try again.');
+              }
+            } catch (error) {
+              console.error('Fetch Error:', error);
+              setError('An error occurred. Please try again.');
             }
-        } catch (error) {
-            setError('An error occurred. Please try again.');
-        }
     };
 
     return (

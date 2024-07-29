@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Register.css';
 import { Link } from 'react-router-dom'; 
 
+
 const RegistrationForm = () => {
   const baseUrl = 'http://localhost:3030/users/register';
   const [fullName, setFullName] = useState('');
@@ -14,12 +15,12 @@ const RegistrationForm = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
+  
     if (password !== confirmPassword) {
       setError('Passwords do not match.');
       return;
     }
-
+  
     try {
       const response = await fetch(baseUrl, {
         method: 'POST',
@@ -28,17 +29,20 @@ const RegistrationForm = () => {
         },
         body: JSON.stringify({ fullName, email, password }),
       });
-
+  
       const data = await response.json();
-
+      console.log('Response Data:', data); // Log the response data for debugging
+  
       if (response.ok) {
         localStorage.setItem('accessToken', data.accessToken);
-        changeAuthState(data);
+        // Assuming `changeAuthState` is defined elsewhere
+        changeAuthState(data); 
         navigate('/');
       } else {
-        setError(data.message);
+        setError(data.message || 'An error occurred. Please try again.');
       }
     } catch (error) {
+      console.error('Fetch Error:', error); // Log fetch errors for debugging
       setError('An error occurred. Please try again.');
     }
   };
