@@ -5,8 +5,7 @@ import { authContext } from '../../context/authContext.js';
 
 function Header() {
     const { isAuthenticated, logout } = useContext(authContext);
-    const navigate = useNavigate();
-
+    
     const handleLogout = () => {
         logout();
     };

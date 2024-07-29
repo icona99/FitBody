@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
@@ -16,33 +16,50 @@ import { authContext } from "./context/authContext.js";
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../public/styles/styles.css';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
 
 function App() {
 
-  const [authState, setAuthState] = useState({})
+  const [authState, setAuthState] = useState({});
+  const userData = () => useContext(authContext);
+
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      const fetchedUserData = {
+        _id: "12345",
+        email: "john_smith@yahoo.com",
+        name: "John Smith",
+        profilePicture: "/images/profile-pic.png",
+        memberSince: "2000-01-01T00:00:00Z"
+      };
+      setAuthState({ ...fetchedUserData, accessToken: token });
+    }
+  }, []);
 
   const changeAuthState = (state) => {
-    localStorage.setItem('accessToken',state.accessToken)
-    setAuthState(state)
+    localStorage.setItem('accessToken', state.accessToken);
+    setAuthState(state);
   };
 
   const logout = () => {
     localStorage.removeItem('accessToken');
     setAuthState({});
-};
+  };
 
   const contextData = {
     userId: authState._id,
     email: authState.email,
     accessToken: authState.accessToken,
     isAuthenticated: !!authState.email,
+    userData,
     changeAuthState,
     logout,
-  }
+  };
 
   return (
     <authContext.Provider value={contextData}>

@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
+import { Link } from 'react-router-dom'; 
 
 const RegistrationForm = () => {
   const baseUrl = 'http://localhost:3030/users/register';
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setError('Passwords do not match.');
+      return;
+    }
 
     try {
       const response = await fetch(baseUrl, {
@@ -25,8 +32,9 @@ const RegistrationForm = () => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log('Registration successful:', data);
-        navigate('/classes');
+        localStorage.setItem('accessToken', data.accessToken);
+        changeAuthState(data);
+        navigate('/');
       } else {
         setError(data.message);
       }
@@ -45,45 +53,57 @@ const RegistrationForm = () => {
         <form onSubmit={submitHandler}>
           <div className="input-group">
             <label htmlFor="fullName">FULL NAME</label>
-            <input 
-              type="text" 
-              id="fullName" 
-              name="fullName" 
-              placeholder="John Smith" 
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="John Smith"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              required 
+              required
             />
           </div>
           <div className="input-group">
             <label htmlFor="email">EMAIL ADDRESS</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              placeholder="john_smith@yahoo.com" 
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="john_smith@yahoo.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required 
+              required
             />
           </div>
           <div className="input-group">
             <label htmlFor="password">PASSWORD</label>
-            <input 
-              type="password" 
-              id="password" 
-              name="password" 
-              placeholder="********" 
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="********"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required 
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="confirm-password">CONFIRM PASSWORD</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              placeholder="********"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
             />
           </div>
           {error && <div className="error-message">{error}</div>}
           <button type="submit">Register</button>
         </form>
         <div className="signup-link">
-          <span>Already a member?</span> <a href="/login">Sign in</a>
+          <span>Already a member?</span> <Link to="/login">Sign in</Link>
         </div>
       </div>
     </div>

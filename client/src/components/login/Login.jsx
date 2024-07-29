@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../../context/authContext';
 import "./Login.css";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const baseUrl = 'http://localhost:3030/users/login';
@@ -73,7 +74,7 @@ const Login = () => {
                     <button type="submit">Login</button>
                 </form>
                 <div className="signup-link">
-                    <span>Not a member?</span> <a href="/register">Sign Up</a>
+                    <span>Not a member?</span> <Link to="/register">Sign Up</Link>
                 </div>
             </div>
         </div>

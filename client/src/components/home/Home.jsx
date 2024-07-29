@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
-import styles from './Home.module.css'; 
+import styles from './Home.module.css';
 import SportCard from '../sportCard/SportCard';
 import classesAPI from '../../api/classesAPI';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
-    const [latestCards, setLatestCards] = useState([]);
+    const [cards, setCards] = useState([]);
 
     useEffect(() => {
         (async () => {
             try {
                 const result = await classesAPI.getAll();
-                setLatestCards(result.slice(-3));
+                setCards(result);
             } catch (error) {
                 console.log(error.message);
             }
@@ -26,6 +27,7 @@ export default function Home() {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 5000,
+        arrows: false,
     };
 
     return (
@@ -35,11 +37,11 @@ export default function Home() {
                 <p>Pilates, Yoga, Fitness, Spinning &amp; many more</p>
             </div>
             <div className={styles['home-button']}>
-                <a href="/register">Join Now</a>
+                <Link to="/register">Join Now</Link>
             </div>
             <section className={styles.cards}>
                 <Slider {...settings}>
-                    {latestCards.map((card) => (
+                    {cards.map((card) => (
                         <div key={card._id} className={styles['card-container']}>
                             <SportCard card={card} className={styles.card} />
                         </div>

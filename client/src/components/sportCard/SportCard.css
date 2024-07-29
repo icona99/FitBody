@@ -8,10 +8,10 @@
     padding: 1em;
     margin: 0.5em;
     text-align: center;
+    align-items: center;
     border-radius: 0.7em;
     box-shadow: 0 0 1em rgba(146, 146, 146, 0.1);
     overflow: hidden;
-    transition: background 0.3s, transform 0.3s;
 }
 
 .card:hover {
@@ -40,7 +40,7 @@
 .circle-button {
     position: absolute;
     bottom: 10px;
-    right: 125px;
+    right: 200px;
     width: 40px;
     height: 40px;
     background-color: #ffffff;
@@ -50,9 +50,6 @@
     line-height: 40px;
     text-decoration: none;
     font-size: 20px;
-    opacity: 0;
-    transform: scale(0.5);
-    transition: opacity 0.3s, transform 0.3s;
 }
 
 .card:hover .circle-button {
