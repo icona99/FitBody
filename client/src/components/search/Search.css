@@ -1,66 +1,61 @@
+.profile-container {}
 
-.profile-container {
+/* Search.css */
+.search-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 5em 2em;
     background: url('/images/profile.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
-    height: 86vh;
+    height: 82vh;
+
 }
 
-.profile-content {
-    background: #1a1a1a;
-    color: white;
-    border-radius: 0.5em;
-    box-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
-    max-width: 800px;
-    padding: 2em;
-    text-align: center;
+.search-form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 600px;
     margin: 0 auto;
 }
 
-.profile-picture img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin-bottom: 1em;
-    border: 4px solid #333;
+.search-form input {
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
 }
 
-.profile-details h2 {
+.search-form button {
+    padding: 0.5em 2em;
+    background-color: #333;
     color: rgb(233, 115, 4);
-    margin-top: 0.5em;
+    border: 1px solid rgb(233, 115, 4);
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 2em;
 }
 
-.profile-bio {
-    font-size: 1.2em;
-    margin: 1em 0;
-    line-height: 1.6;
-}
-
-.profile-info {
+.search-results {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
+    max-width: 800px;
 }
 
-.info-item {
-    display: flex;
-    justify-content: space-between;
+.search-results .result-item {
     width: 100%;
-    padding: 0.5em 0;
-    border-bottom: 1px solid #444;
-}
-
-.info-label {
-    font-weight: bold;
-}
-
-.info-value {
-    color: #777;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1em;
+    background-color: #fff;
 }

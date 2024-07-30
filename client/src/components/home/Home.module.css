@@ -60,12 +60,12 @@
 }
 
 .cards {
-    width:85%;
+    width: 85%;
     margin: 0 auto;
     padding: 3em 0;
 }
 
-.slick-list{
+.slick-list {
     padding: 0;
     margin: 0;
 }
@@ -115,4 +115,58 @@
 .circle-button:hover {
     background-color: orange;
     color: white;
+}
+
+@media (max-width: 600px) {
+    .home-text h1 {
+        font-size: 36px;
+    }
+
+    .home-text p {
+        font-size: 14px;
+    }
+
+    .home-button a {
+        font-size: 14px;
+        width: 200px;
+    }
+
+    .card-container {
+        padding: 1em;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+
+    .card p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-text h1 {
+        font-size: 28px;
+    }
+
+    .home-text p {
+        font-size: 12px;
+    }
+
+    .home-button a {
+        font-size: 12px;
+        width: 150px;
+    }
+
+    .card-container {
+        padding: 0.5em;
+    }
+
+    .card h2 {
+        font-size: 16px;
+    }
+
+    .card p {
+        font-size: 10px;
+    }
 }

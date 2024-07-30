@@ -28,6 +28,15 @@ export default function Home() {
         autoplay: true,
         autoplaySpeed: 5000,
         arrows: false,
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
 
     return (
