@@ -6,7 +6,6 @@ import Footer from "./components/footer/Footer";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import About from "./components/about/About";
-import Profile from "./components/profile/Profile";
 import Classes from "./components/classes/Classes";
 import AddClass from "./components/addClass/AddClass";
 import Details from "./components/details/Details";
@@ -18,6 +17,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../public/styles/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Search from "./components/search/Search.jsx";
 
 
 
@@ -56,7 +56,7 @@ function App() {
     email: authState.email,
     accessToken: authState.accessToken,
     isAuthenticated: !!authState.email,
-    userData,
+    userData:authState,
     changeAuthState,
     logout,
   };
@@ -72,7 +72,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/classes" element={<Classes />} />
             <Route path="/about" element={<About />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/addClass" element={<AddClass />} />
             <Route path="/classes/:classId/details" element={<Details />} />
             {/* <Route path="/edit/:id" element={<EditCard />} /> */}

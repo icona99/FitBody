@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import { authContext } from '../../context/authContext';
 
 
 const RegistrationForm = () => {
@@ -11,16 +12,17 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
+  const { changeAuthState } = useContext(authContext);
   const navigate = useNavigate();
 
   const submitHandler = async (e) => {
     e.preventDefault();
-  
+
     if (password !== confirmPassword) {
       setError('Passwords do not match.');
       return;
     }
-  
+
     try {
       const response = await fetch(baseUrl, {
         method: 'POST',
@@ -29,14 +31,14 @@ const RegistrationForm = () => {
         },
         body: JSON.stringify({ fullName, email, password }),
       });
-  
+
       const data = await response.json();
       console.log('Response Data:', data); // Log the response data for debugging
-  
+
       if (response.ok) {
         localStorage.setItem('accessToken', data.accessToken);
         // Assuming `changeAuthState` is defined elsewhere
-        changeAuthState(data); 
+        changeAuthState(data);
         navigate('/');
       } else {
         setError(data.message || 'An error occurred. Please try again.');

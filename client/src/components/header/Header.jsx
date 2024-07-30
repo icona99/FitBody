@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import { authContext } from '../../context/authContext.js';
 
@@ -41,7 +41,7 @@ function Header() {
                                 <Link to="/classes">Classes</Link>
                             </li>
                             <li>
-                                <Link to="/profile">Profile</Link>
+                                <Link to="/search">Search</Link>
                             </li>
 
                             <li>
