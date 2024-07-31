@@ -1,6 +1,5 @@
 .profile-container {}
 
-/* Search.css */
 .search-container {
     flex-direction: column;
     align-items: center;
@@ -22,6 +21,14 @@
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
+    margin-bottom: 2em;
+}
+
+h2 {
+    color: white;
+    font-size: 34px;
+    font-weight: bold;
+
 }
 
 .search-form input {
@@ -30,7 +37,7 @@
     margin: 0.5em 0;
     border: 1px solid #ccc;
     border-radius: 4px;
-    
+
 }
 
 .search-form button {
@@ -38,24 +45,22 @@
     background-color: #333;
     color: rgb(233, 115, 4);
     border: 1px solid rgb(233, 115, 4);
-    border-radius: 4px;
+    border-radius: 0.3em;
     cursor: pointer;
     margin-top: 2em;
 }
 
-.search-results {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
+.search-form button:hover {
+    background-color: rgb(233, 115, 4);
+    color: #333;
 }
 
-.search-results .result-item {
-    width: 100%;
-    padding: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 1em;
-    background-color: #fff;
+.search-results {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 1em;
+    max-width: 1200px;
+    flex-direction: row;
+    gap: 1em;
 }

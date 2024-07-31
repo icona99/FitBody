@@ -7,7 +7,8 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import About from "./components/about/About";
 import Classes from "./components/classes/Classes";
-import AddClass from "./components/addClass/AddClass";
+import Search from "./components/search/Search.jsx";
+import CreateClass from "./components/createClass/CreateClass.jsx";
 import Details from "./components/details/Details";
 // import EditCard from "./components/edit/EditCard";
 import NotFound from "./components/not-found/NotFound.jsx";
@@ -17,29 +18,13 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../public/styles/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Search from "./components/search/Search.jsx";
+
 
 
 
 function App() {
 
   const [authState, setAuthState] = useState({});
-  const userData = () => useContext(authContext);
-
-
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    if (token) {
-      const fetchedUserData = {
-        _id: "12345",
-        email: "john_smith@yahoo.com",
-        name: "John Smith",
-        profilePicture: "/images/profile-pic.png",
-        memberSince: "2000-01-01T00:00:00Z"
-      };
-      setAuthState({ ...fetchedUserData, accessToken: token });
-    }
-  }, []);
 
   const changeAuthState = (state) => {
     localStorage.setItem('accessToken', state.accessToken);
@@ -56,7 +41,6 @@ function App() {
     email: authState.email,
     accessToken: authState.accessToken,
     isAuthenticated: !!authState.email,
-    userData:authState,
     changeAuthState,
     logout,
   };
@@ -73,7 +57,7 @@ function App() {
             <Route path="/classes" element={<Classes />} />
             <Route path="/about" element={<About />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/addClass" element={<AddClass />} />
+            <Route path="/createClass" element={<CreateClass />} />
             <Route path="/classes/:classId/details" element={<Details />} />
             {/* <Route path="/edit/:id" element={<EditCard />} /> */}
             <Route path="*" element={<NotFound />} />

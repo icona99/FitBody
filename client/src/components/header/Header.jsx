@@ -45,7 +45,7 @@ function Header() {
                             </li>
 
                             <li>
-                                <Link to="/addClass">Add Class</Link>
+                                <Link to="/createClass">Create Class</Link>
                             </li>
                             <li>
                                 <Link to="/" onClick={handleLogout} className="logout-button">Logout</Link>

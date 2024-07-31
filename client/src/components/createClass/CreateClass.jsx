@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/UseForm';
-import './addClass.css';
+import './createClass.css';
 import { useCreateClass } from '../../hooks/UseClasses';
 
 const initialValues = {
@@ -11,7 +11,7 @@ const initialValues = {
     image: ''
 };
 
-const AddClass = () => {
+const CreateClass = () => {
     const navigate = useNavigate();
     const createClass = useCreateClass();
 
@@ -88,4 +88,4 @@ const AddClass = () => {
     );
 };
 
-export default AddClass;
+export default CreateClass;
