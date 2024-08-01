@@ -10,7 +10,7 @@ import Classes from "./components/classes/Classes";
 import Search from "./components/search/Search.jsx";
 import CreateClass from "./components/createClass/CreateClass.jsx";
 import Details from "./components/details/Details";
-// import EditCard from "./components/edit/EditCard";
+import EditCard from "./components/edit/EditCard";
 import NotFound from "./components/not-found/NotFound.jsx";
 import { authContext } from "./context/authContext.js";
 
@@ -59,7 +59,7 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/createClass" element={<CreateClass />} />
             <Route path="/classes/:classId/details" element={<Details />} />
-            {/* <Route path="/edit/:id" element={<EditCard />} /> */}
+            <Route path="/classes/:classId/edit" element={<EditCard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

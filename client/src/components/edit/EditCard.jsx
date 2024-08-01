@@ -1,26 +1,85 @@
-// import { useParams } from "react-router-dom";
-// import DetailsCard from "../cardDetails/DetailsCard";
-// import styles from "./Edit.module.css";
-// import { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import styles from './Edit.module.css';
+import useForm from '../../hooks/UseForm';
+import { useGetOneClass } from '../../hooks/UseClasses';
+import classesAPI from '../../api/classesAPI';
 
-// const baseUrl = 'http://localhost:3030/data'
+const initialValues = {
+    title: '',
+    image: '',
+    level: '',
+    description: '',
+}
 
-// export default function EditCard() {
+export default function EditCard() {
+    const navigate=useNavigate()
+    const { classId } = useParams();
+    const [classData, setClassData] = useGetOneClass(classId)
 
-//     const { id } = useParams();
-//     const [card, setCard] = useState(null);
+    const {
+        changeHandler,
+        submitHandler,
+        values,
+    } = useForm(Object.assign(initialValues, classData), async (values) => {
+       await classesAPI.edit(classId,values);
+       navigate(`/classes/${classId}/details`)
+    })
 
-//     useEffect (() => {
-//         (async function fetchCard() {
-//             try {
-//                 const response = await fetch(`${baseUrl}/classes/${id}`);
-//                 const result = await response.json();
-//                 setCard(result)
-//             } catch (error) {
-//                 alert(error.message)
-//             }
-
-//         })();
-//     }, [id])
-//     return <DetailsCard card={card} />;
-// }
+    return (
+        <div className={styles.editCardContainer}>
+            <div className={styles.editCardBox}>
+                <h2>Edit Class</h2>
+                <form onSubmit={submitHandler}>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="image">Image</label>
+                        <input
+                            name='image'
+                            type="text"
+                            id="image"
+                            value={values.image}
+                            onChange={changeHandler}
+                            required
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="title">Title</label>
+                        <input
+                            name='title'
+                            type="text"
+                            id="title"
+                            value={values.title}
+                            onChange={changeHandler}
+                            required
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="level">Level</label>
+                        <select
+                            name='level'
+                            id="level"
+                            value={values.level}
+                            onChange={changeHandler}
+                            required
+                        >
+                            <option value="" disabled>Select level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="description">Description</label>
+                        <textarea
+                            name='description'
+                            id="description"
+                            value={values.description}
+                            onChange={changeHandler}
+                            required
+                        />
+                    </div>
+                    <button >Save Changes</button>
+                </form>
+            </div>
+        </div>
+    );
+}

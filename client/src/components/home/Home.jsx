@@ -12,7 +12,11 @@ export default function Home() {
         (async () => {
             try {
                 const result = await classesAPI.getAll();
-                setCards(result);
+                if (Array.isArray(result)) {
+                    setCards(result);
+                } else {
+                    console.error("Unexpected response format:", result);
+                }
             } catch (error) {
                 console.log(error.message);
             }
@@ -50,11 +54,15 @@ export default function Home() {
             </div>
             <section className={styles.cards}>
                 <Slider {...settings}>
-                    {cards.map((card) => (
-                        <div key={card._id} className={styles['card-container']}>
-                            <SportCard card={card} className={styles.card} />
-                        </div>
-                    ))}
+                    {Array.isArray(cards) && cards.length > 0 ? (
+                        cards.map((card) => (
+                            <div key={card._id} className={styles['card-container']}>
+                                <SportCard card={card} className={styles.card} />
+                            </div>
+                        ))
+                    ) : (
+                        <p>No classes available</p>
+                    )}
                 </Slider>
             </section>
         </div>

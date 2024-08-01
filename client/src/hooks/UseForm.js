@@ -1,18 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function useForm(initialValues, submitCallback) {
-    const [values, setValues] = useState(initialValues)
+    const [values, setValues] = useState(initialValues);
+
+    useEffect(() => {
+        setValues(initialValues)
+    }, [initialValues])
 
     const changeHandler = (e) => {
         setValues(state => ({
             ...state,
             [e.target.name]: e.target.value
         }))
-    } 
-    const submitHandler = (e) => {
+    }
+    const submitHandler = async (e) => {
         e.preventDefault()
 
-        submitCallback(values);
+       await submitCallback(values);
     };
 
     return {

@@ -36,7 +36,7 @@ const Details = () => {
       <p>{card.level}</p>
       <p>{card.description}</p>
       <div className={styles.buttons}>
-        <Link to={`/edit/${card._id}`} className={styles.editButton}>Edit</Link>
+        <Link to={`/classes/${classId}/edit`} className={styles.editButton}>Edit</Link>
         <Link onClick={handleDelete} className={styles.deleteButton}>Delete</Link>
       </div>
     </div>
