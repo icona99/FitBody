@@ -11,6 +11,7 @@ const Details = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { userId } = useContext(authContext);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -18,7 +19,7 @@ const Details = () => {
         const result = await classesAPI.getOne(classId);
         setCard(result);
       } catch (error) {
-        alert(error.message);
+        setError(error.message);
       }
     })();
   }, [classId]);
@@ -28,7 +29,7 @@ const Details = () => {
       await classesAPI.remove(classId);
       navigate('/classes');
     } catch (error) {
-      alert(error.message);
+      setError(error.message);
     }
   };
 
@@ -36,6 +37,7 @@ const Details = () => {
 
   return (
     <div className={styles.cardContainer}>
+      {error && <div className={styles.errorMessage}>{error}</div>}
       <div className={styles.card}>
         <img src={card.imageUrl} alt={card.title} className={styles.image} />
         <h2>{card.title}</h2>
@@ -44,7 +46,7 @@ const Details = () => {
         {isAuthor && (
           <div className={styles.buttons}>
             <Link to={`/classes/${classId}/edit`} className={styles.editButton}>Edit</Link>
-            <Link to onClick={() => setIsModalOpen(true)} className={styles.deleteButton}>Delete</Link>
+            <Link onClick={() => setIsModalOpen(true)} className={styles.deleteButton}>Delete</Link>
           </div>
         )}
       </div>

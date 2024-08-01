@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './Classes.css'
-import SportCard from '../sportCard/SportCard'
-import  classesAPI from '../../api/classesAPI'
+import SportCard from '../sportCard/SportCard';
+import classesAPI from '../../api/classesAPI';
 
 export default function Classes() {
-
     const [cards, setCards] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         (async () => {
-            const result = await classesAPI.getAll()
-            setCards(result)
+            try {
+                const result = await classesAPI.getAll();
+                setCards(result);
+            } catch (err) {
+                setError(err.message);
+            }
         })();
     }, []);
 
@@ -19,21 +23,29 @@ export default function Classes() {
             <div className="title">
                 <h2>We have variety of classes</h2>
             </div>
-            <section class="cards">
-                {cards.length > 0
-                    ? cards.map((card) => (
-                        <SportCard
-                            key={card._id}
-                            card={card}
-                        />
-                    ))
+            <section className="cards">
+                {error ? (
+                    <h3 style={{ color: 'red' }}>Error: {error}</h3>
+                ) : (
+                    cards.length > 0 ? (
+                        cards.map((card) => (
+                            <SportCard
+                                key={card._id}
+                                card={card}
+                            />
+                        ))
+                    ) : (
+                        <h3 style={{ color: 'white' }}>No classes yet</h3>
+                    )
+                )}
+            </section>
+        </div>
+    );
+}
 
-                    : <h3 style={{ color: 'white' }}>No classes yet</h3>
-
-                }
 
 
-                {/* <div class="card">
+{/* <div class="card">
                     <img src="/public/images/icon_7.png" alt="Weight training" />
                     <h2>Weight training</h2>
                     <p>Pilates is a system of repetitive exercises performed on a yoga mat or other equipment to promote strength, stability, and flexibility. Pilates exercises develop the body through muscular effort that stems from the core.</p>
@@ -70,7 +82,4 @@ export default function Classes() {
                     <p>However, a diet plan is tailored to an individual's health status, weight and lifestyle, along with their weight loss and health goals. The diet plan acts as a bespoke template to steer your eating behaviour, exercise and lifestyle management towards optimal health and wellbeing.</p>
                     <a href="/details" class="circle-button">+</a>
                 </div> */}
-            </section>
-        </div>
-    )
-}
+

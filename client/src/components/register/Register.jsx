@@ -33,18 +33,15 @@ const RegistrationForm = () => {
       });
 
       const data = await response.json();
-      console.log('Response Data:', data); // Log the response data for debugging
 
       if (response.ok) {
         localStorage.setItem('accessToken', data.accessToken);
-        // Assuming `changeAuthState` is defined elsewhere
         changeAuthState(data);
         navigate('/');
       } else {
         setError(data.message || 'An error occurred. Please try again.');
       }
     } catch (error) {
-      console.error('Fetch Error:', error); // Log fetch errors for debugging
       setError('An error occurred. Please try again.');
     }
   };

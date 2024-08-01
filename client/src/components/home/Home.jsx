@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
     const [cards, setCards] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         (async () => {
@@ -16,9 +17,11 @@ export default function Home() {
                     setCards(result);
                 } else {
                     console.error("Unexpected response format:", result);
+                    setError("Unexpected response format");
                 }
             } catch (error) {
                 console.log(error.message);
+                setError(error.message);
             }
         })();
     }, []);
@@ -53,17 +56,21 @@ export default function Home() {
                 <Link to="/register">Join Now</Link>
             </div>
             <section className={styles.cards}>
-                <Slider {...settings}>
-                    {Array.isArray(cards) && cards.length > 0 ? (
-                        cards.map((card) => (
-                            <div key={card._id} className={styles['card-container']}>
-                                <SportCard card={card} className={styles.card} />
-                            </div>
-                        ))
-                    ) : (
-                        <p>No classes available</p>
-                    )}
-                </Slider>
+                {error ? (
+                    <p className={styles.errorMessage}>Error: {error}</p>
+                ) : (
+                    <Slider {...settings}>
+                        {Array.isArray(cards) && cards.length > 0 ? (
+                            cards.map((card) => (
+                                <div key={card._id} className={styles['card-container']}>
+                                    <SportCard card={card} className={styles.card} />
+                                </div>
+                            ))
+                        ) : (
+                            <p>No classes available</p>
+                        )}
+                    </Slider>
+                )}
             </section>
         </div>
     );

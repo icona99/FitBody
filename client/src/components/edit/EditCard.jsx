@@ -5,25 +5,34 @@ import useForm from '../../hooks/UseForm';
 import { useGetOneClass } from '../../hooks/UseClasses';
 import classesAPI from '../../api/classesAPI';
 
-
 export default function EditCard() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { classId } = useParams();
-    const [classData, setClassData] = useGetOneClass(classId)
+    const [classData, setClassData] = useGetOneClass(classId);
+    const [error, setError] = useState(null);
 
     const {
         changeHandler,
         submitHandler,
         values,
     } = useForm(classData, async (values) => {
-        await classesAPI.edit(classId, values);
-        navigate(`/classes/${classId}/details`)
+        try {
+            await classesAPI.edit(classId, values);
+            navigate(`/classes/${classId}/details`);
+        } catch (error) {
+            setError(error.message);
+        }
     });
+
+    useEffect(() => {
+        setClassData(classData);
+    }, [classData, setClassData]);
 
     return (
         <div className={styles.editCardContainer}>
             <div className={styles.editCardBox}>
                 <h2>Edit Class</h2>
+                {error && <div className={styles.errorMessage}>{error}</div>}
                 <form onSubmit={submitHandler}>
                     <div className={styles.formGroup}>
                         <label htmlFor="image">Image</label>
@@ -71,7 +80,7 @@ export default function EditCard() {
                             required
                         />
                     </div>
-                    <button >Save Changes</button>
+                    <button type="submit">Save Changes</button>
                 </form>
             </div>
         </div>

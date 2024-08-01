@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/UseForm';
 import './createClass.css';
@@ -14,13 +14,14 @@ const initialValues = {
 const CreateClass = () => {
     const navigate = useNavigate();
     const createClass = useCreateClass();
+    const [error, setError] = useState(null);
 
     const createHandler = async (values) => {
         try {
             const { _id: classId } = await createClass(values);
             navigate(`/classes`);
         } catch (error) {
-            alert(error.message);
+            setError(error.message);
         }
     };
 
@@ -34,6 +35,7 @@ const CreateClass = () => {
         <div className="add-class-container">
             <div className="add-class-box">
                 <h2>Add New Class</h2>
+                {error && <div className="error-message">{error}</div>}
                 <form onSubmit={submitHandler}>
                     <div className="form-group">
                         <label htmlFor="image">Image</label>
