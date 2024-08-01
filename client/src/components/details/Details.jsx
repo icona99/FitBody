@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import classesAPI from '../../api/classesAPI';
 import styles from './Details.module.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import ConfirmModal from '../../utils/ConfirmModal';
-
+import { authContext } from '../../context/authContext.js';
 
 const Details = () => {
   const [card, setCard] = useState({});
   const { classId } = useParams();
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { userId } = useContext(authContext);
 
   useEffect(() => {
     (async () => {
@@ -31,6 +32,8 @@ const Details = () => {
     }
   };
 
+  const isAuthor = userId === card._ownerId;
+
   return (
     <div className={styles.cardContainer}>
       <div className={styles.card}>
@@ -38,10 +41,12 @@ const Details = () => {
         <h2>{card.title}</h2>
         <p>{card.level}</p>
         <p>{card.description}</p>
-        <div className={styles.buttons}>
-          <Link to={`/classes/${classId}/edit`} className={styles.editButton}>Edit</Link>
-          <Link to onClick={() => setIsModalOpen(true)} className={styles.deleteButton}>Delete</Link>
-        </div>
+        {isAuthor && (
+          <div className={styles.buttons}>
+            <Link to={`/classes/${classId}/edit`} className={styles.editButton}>Edit</Link>
+            <Link to onClick={() => setIsModalOpen(true)} className={styles.deleteButton}>Delete</Link>
+          </div>
+        )}
       </div>
       <ConfirmModal
         isOpen={isModalOpen}
