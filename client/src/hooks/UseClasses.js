@@ -9,7 +9,12 @@ export function useCreateClass() {
 }
 
 export function useGetOneClass(classId) {
-    const [classData, setClassData] = useState({});
+    const [classData, setClassData] = useState({
+      title: '',
+      image: '',
+      level: '',
+      description: '',
+    });
   
     useEffect(() => {
       (async () => {
@@ -21,6 +26,6 @@ export function useGetOneClass(classId) {
         }
       })();
     }, [classId]);
-  
+   
     return [classData, setClassData];
   }

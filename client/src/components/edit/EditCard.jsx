@@ -5,15 +5,9 @@ import useForm from '../../hooks/UseForm';
 import { useGetOneClass } from '../../hooks/UseClasses';
 import classesAPI from '../../api/classesAPI';
 
-const initialValues = {
-    title: '',
-    image: '',
-    level: '',
-    description: '',
-}
 
 export default function EditCard() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const { classId } = useParams();
     const [classData, setClassData] = useGetOneClass(classId)
 
@@ -21,10 +15,10 @@ export default function EditCard() {
         changeHandler,
         submitHandler,
         values,
-    } = useForm(Object.assign(initialValues, classData), async (values) => {
-       await classesAPI.edit(classId,values);
-       navigate(`/classes/${classId}/details`)
-    })
+    } = useForm(classData, async (values) => {
+        await classesAPI.edit(classId, values);
+        navigate(`/classes/${classId}/details`)
+    });
 
     return (
         <div className={styles.editCardContainer}>
