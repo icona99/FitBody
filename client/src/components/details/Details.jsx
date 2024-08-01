@@ -21,6 +21,12 @@ const Details = () => {
   }, [classId]);
 
   const handleDelete = async () => {
+    const IsConfirmed = confirm(`Are you sure you want to delete${card.title} game`);
+
+    if (!IsConfirmed) {
+      return
+    };
+
     try {
       await classesAPI.remove(classId);
       navigate('/classes');
