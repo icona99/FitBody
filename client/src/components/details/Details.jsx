@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import classesAPI from '../../api/classesAPI';
 import styles from './Details.module.css';
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import ConfirmModal from '../../utils/ConfirmModal';
 
 
 const Details = () => {
   const [card, setCard] = useState({});
   const { classId } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -21,12 +23,6 @@ const Details = () => {
   }, [classId]);
 
   const handleDelete = async () => {
-    const IsConfirmed = confirm(`Are you sure you want to delete ${card.title} game`);
-
-    if (!IsConfirmed) {
-      return
-    };
-
     try {
       await classesAPI.remove(classId);
       navigate('/classes');
@@ -35,20 +31,26 @@ const Details = () => {
     }
   };
 
-  return (<div className={styles.cardContainer}>
-    <div className={styles.card}>
-      <img src={card.imageUrl} alt={card.title} className={styles.image} />
-      <h2>{card.title}</h2>
-      <p>{card.level}</p>
-      <p>{card.description}</p>
-      <div className={styles.buttons}>
-        <Link to={`/classes/${classId}/edit`} className={styles.editButton}>Edit</Link>
-        <Link onClick={handleDelete} className={styles.deleteButton}>Delete</Link>
+  return (
+    <div className={styles.cardContainer}>
+      <div className={styles.card}>
+        <img src={card.imageUrl} alt={card.title} className={styles.image} />
+        <h2>{card.title}</h2>
+        <p>{card.level}</p>
+        <p>{card.description}</p>
+        <div className={styles.buttons}>
+          <Link to={`/classes/${classId}/edit`} className={styles.editButton}>Edit</Link>
+          <Link to onClick={() => setIsModalOpen(true)} className={styles.deleteButton}>Delete</Link>
+        </div>
       </div>
+      <ConfirmModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        onConfirm={handleDelete}
+        message={`Are you sure you want to delete ${card.title} game?`}
+      />
     </div>
-  </div>
   );
 };
-
 
 export default Details;
