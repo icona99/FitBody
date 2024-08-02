@@ -4,15 +4,20 @@ import styles from './Home.module.css';
 import SportCard from '../sportCard/SportCard';
 import classesAPI from '../../api/classesAPI';
 import { Link } from 'react-router-dom';
+import { Rings } from 'react-loader-spinner';
+import { delay } from '../../utils/delay'; // Assuming you have this utility
 
 export default function Home() {
     const [cards, setCards] = useState([]);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         (async () => {
+            setLoading(true);
             try {
                 const result = await classesAPI.getAll();
+                await delay(2000); // Simulate a 2-second delay
                 if (Array.isArray(result)) {
                     setCards(result);
                 } else {
@@ -23,6 +28,7 @@ export default function Home() {
                 console.log(error.message);
                 setError(error.message);
             }
+            setLoading(false);
         })();
     }, []);
 
@@ -56,7 +62,18 @@ export default function Home() {
                 <Link to="/register">Join Now</Link>
             </div>
             <section className={styles.cards}>
-                {error ? (
+                {loading ? (
+                    <Rings
+                        height="100"
+                        width="100"
+                        color="#4fa94d"
+                        radius="6"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                        ariaLabel="rings-loading"
+                    />
+                ) : error ? (
                     <p className={styles.errorMessage}>Error: {error}</p>
                 ) : (
                     <Slider {...settings}>

@@ -63,3 +63,12 @@ h2 {
     flex-direction: row;
     gap: 1em;
 }
+
+.error-message {
+    color: red;
+    font-size: 28px;
+    margin-top: 1em;
+    text-align: center;
+}
+
+

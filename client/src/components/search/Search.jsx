@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './Search.css';
 import SportCard from '../sportCard/SportCard';
 import classesAPI from '../../api/classesAPI';
+import { Rings } from 'react-loader-spinner';
+import { delay } from '../../utils/delay';
+
+
 
 const Search = () => {
     const [name, setName] = useState('');
@@ -9,6 +13,7 @@ const Search = () => {
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [searchAttempted, setSearchAttempted] = useState(false);
 
     useEffect(() => {
         const fetchAllClasses = async () => {
@@ -27,12 +32,23 @@ const Search = () => {
         fetchAllClasses();
     }, []);
 
-    const searchHandler = (e) => {
+    const searchHandler = async (e) => {
         e.preventDefault();
+
+        const validInput = name.trim();
+
+        setSearchAttempted(true);
+
+        if (!validInput) {
+            setError('Please enter a valid search input');
+            return;
+        }
+
         setLoading(true);
         setError(null);
         try {
             const filteredData = allResults.filter(card => card.title.toLowerCase().includes(name.toLowerCase()));
+            await delay(2000); 
             setResults(filteredData);
             setName('');
         } catch (error) {
@@ -56,18 +72,27 @@ const Search = () => {
             </form>
             <div className="search-results">
                 {loading ? (
-                    <p>Loading...</p>
-                ) : error ? (
-                    <p>{error}</p>
+                    <Rings
+                        height="100"
+                        width="100"
+                        color="#4fa94d"
+                        radius="6"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                        ariaLabel="rings-loading"
+                    />
+                ) : searchAttempted && error ? (
+                    <p className="error-message">{error}</p>
                 ) : results.length > 0 ? (
                     results.map((card) => (
                         <div key={card._id} className="result-item">
                             <SportCard card={card} />
                         </div>
                     ))
-                ) : (
+                ) : searchAttempted ? (
                     <p>No results found</p>
-                )}
+                ) : null}
             </div>
         </div>
     );
