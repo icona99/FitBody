@@ -5,7 +5,7 @@ import SportCard from '../sportCard/SportCard';
 import classesAPI from '../../api/classesAPI';
 import { Link } from 'react-router-dom';
 import { Rings } from 'react-loader-spinner';
-import { delay } from '../../utils/delay'; // Assuming you have this utility
+import { delay } from '../../utils/delay'; 
 
 export default function Home() {
     const [cards, setCards] = useState([]);
@@ -17,7 +17,7 @@ export default function Home() {
             setLoading(true);
             try {
                 const result = await classesAPI.getAll();
-                await delay(2000); // Simulate a 2-second delay
+                await delay(2000); 
                 if (Array.isArray(result)) {
                     setCards(result);
                 } else {
@@ -63,16 +63,18 @@ export default function Home() {
             </div>
             <section className={styles.cards}>
                 {loading ? (
-                    <Rings
-                        height="100"
-                        width="100"
-                        color="#4fa94d"
-                        radius="6"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                        visible={true}
-                        ariaLabel="rings-loading"
-                    />
+               <div className={styles.spinner}>
+               <Rings
+                   height="150"
+                   width="150"
+                   color="rgb(255, 140, 0)" 
+                   radius="6"
+                   wrapperStyle={{}}
+                   wrapperClass=""
+                   visible={true}
+                   ariaLabel="rings-loading"
+               />
+           </div>
                 ) : error ? (
                     <p className={styles.errorMessage}>Error: {error}</p>
                 ) : (

@@ -73,9 +73,9 @@ const Search = () => {
             <div className="search-results">
                 {loading ? (
                     <Rings
-                        height="100"
-                        width="100"
-                        color="#4fa94d"
+                        height="150"
+                        width="150"
+                        color="rgb(255, 140, 0)" 
                         radius="6"
                         wrapperStyle={{}}
                         wrapperClass=""

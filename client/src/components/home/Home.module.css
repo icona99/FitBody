@@ -119,6 +119,13 @@
     color: white;
 }
 
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; 
+}
+
 
 @media (max-width: 600px) {
     .home-text h1 {

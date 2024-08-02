@@ -4,7 +4,6 @@ import './Register.css';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../context/authContext';
 
-
 const RegistrationForm = () => {
   const baseUrl = 'http://localhost:3030/users/register';
   const [fullName, setFullName] = useState('');
@@ -17,6 +16,12 @@ const RegistrationForm = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    // Check for whitespace in fullName
+    if (!fullName.trim()) {
+      setError('Full name cannot be empty or contain only whitespace.');
+      return;
+    }
 
     if (password !== confirmPassword) {
       setError('Passwords do not match.');
