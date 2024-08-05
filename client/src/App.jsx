@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
@@ -18,22 +18,27 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../public/styles/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
-
-
+import GuestGuard from "./components/common/GuestGuard.jsx";
 
 function App() {
 
-    const [authState, setAuthState] = useState({});
+    const [authState, setAuthState] = useState(() => {
+        const savedState = localStorage.getItem("authState");
+        try {
+            return savedState ? JSON.parse(savedState) : {};
+        } catch (error) {
+            console.error("Failed to parse authState from localStorage:", error);
+            return {};
+        }
+    });
 
     const changeAuthState = (state) => {
-        localStorage.setItem('accessToken', state.accessToken);
+        localStorage.setItem('authState', JSON.stringify(state));
         setAuthState(state);
     };
 
     const logout = () => {
-        localStorage.removeItem('accessToken');
+        localStorage.removeItem("authState");
         setAuthState({});
     };
 
@@ -46,6 +51,17 @@ function App() {
         logout,
     };
 
+    useEffect(() => {
+        const storedAuthState = localStorage.getItem("authState");
+        if (storedAuthState) {
+            try {
+                setAuthState(JSON.parse(storedAuthState));
+            } catch (error) {
+                console.error("Failed to parse authState from localStorage:", error);
+            }
+        }
+    }, []);
+
     return (
         <authContext.Provider value={contextData}>
             <div className="container">
@@ -53,8 +69,10 @@ function App() {
                 <div className="main">
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
+                        <Route element={<GuestGuard />}>
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
+                        </Route>
                         <Route path="/about" element={<About />} />
                         <Route element={<PrivateGuard />}>
                             <Route path="/classes" element={<Classes />} />
@@ -62,8 +80,8 @@ function App() {
                             <Route path="/createClass" element={<CreateClass />} />
                             <Route path="/classes/:classId/details" element={<Details />} />
                             <Route path="/classes/:classId/edit" element={<EditCard />} />
-                            <Route path="*" element={<NotFound />} />
                         </Route>
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>
                 <Footer />
