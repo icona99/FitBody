@@ -1,4 +1,4 @@
-# World Marathons Readme
+# FitBody Readme
 
 Welcome to our React project! This project aims to provide a user-friendly interface for managing marathons. It includes features such as user authentication (login, register, logout), classes catalog browsing, class creation, and management functionalities (viewing details, editing, and deletion).
 
