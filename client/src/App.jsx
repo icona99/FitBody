@@ -18,7 +18,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../public/styles/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import GuestGuard from "./components/common/GuestGuard.jsx";
+import LoggedGuard from "./components/common/LoggedGuard.jsx";
 
 function App() {
 
@@ -69,7 +69,7 @@ function App() {
                 <div className="main">
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route element={<GuestGuard />}>
+                        <Route element={<LoggedGuard />}>
                             <Route path="/login" element={<Login />} />
                             <Route path="/register" element={<Register />} />
                         </Route>

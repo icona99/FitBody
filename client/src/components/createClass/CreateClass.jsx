@@ -8,7 +8,7 @@ const initialValues = {
     title: '',
     description: '',
     level: '',
-    image: ''
+    imageUrl: ''
 };
 
 const CreateClass = () => {
@@ -38,12 +38,12 @@ const CreateClass = () => {
                 {error && <div className="error-message">{error}</div>}
                 <form onSubmit={submitHandler}>
                     <div className="form-group">
-                        <label htmlFor="image">Image</label>
+                        <label htmlFor="imageUrl">Image</label>
                         <input
-                            name='image'
+                            name='imageUrl'
                             type="text"
                             id="image"
-                            value={values.image}
+                            value={values.imageUrl}
                             onChange={changeHandler}
                             required
                         />
