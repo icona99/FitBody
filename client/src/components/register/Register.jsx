@@ -16,8 +16,7 @@ const RegistrationForm = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
-    // Check for whitespace in fullName
+    
     if (!fullName.trim()) {
       setError('Full name cannot be empty or contain only whitespace.');
       return;

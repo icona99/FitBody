@@ -14,14 +14,13 @@ import EditCard from "./components/edit/EditCard";
 import NotFound from "./components/not-found/NotFound.jsx";
 import { authContext } from "./context/authContext.js";
 import PrivateGuard from "./components/common/privateGuard.jsx";
+import LoggedGuard from "./components/common/LoggedGuard.jsx";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../public/styles/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import LoggedGuard from "./components/common/LoggedGuard.jsx";
 
 function App() {
-
     const [authState, setAuthState] = useState(() => {
         const savedState = localStorage.getItem("authState");
         try {
@@ -68,7 +67,9 @@ function App() {
                 <Header />
                 <div className="main">
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                        <Route path="/" element={<PrivateGuard />}>
+                            <Route path="/" element={<Home />} />
+                        </Route>
                         <Route element={<LoggedGuard />}>
                             <Route path="/login" element={<Login />} />
                             <Route path="/register" element={<Register />} />
